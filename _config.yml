@@ -9,8 +9,8 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Homepage"
-title_separator          : "-"
+title                    : "Ahmadreza Farvardin"
+title_separator          : #"-"
 name                     : &name "Ahmadreza Farvardin"
 description              : &description "personal homepage"
 url                      : https://ahmadrezafarvardin.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
