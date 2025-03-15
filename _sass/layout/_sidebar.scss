@@ -195,10 +195,16 @@
     @include breakpoint($large) {
       display: none;
     }
+
+    @media (max-width: #{$large - 1}) {
+      display: none; // Hide follow button on mobile
+    }
   }
 
   .mobile-primary-links {
-    display: block;
+    display: flex; // Change to flex for better icon alignment
+    justify-content: center;
+    gap: 0.5em; // Small gap between icons
     margin: 1em 0;
     
     @include breakpoint($large) {
@@ -241,6 +247,24 @@
     border: 0;
     background: transparent;
     box-shadow: none;
+  }
+
+  @media (max-width: #{$large - 1}) {
+    // Show dropdown menu by default on mobile without requiring button click
+    display: block;
+    position: relative;
+    right: auto;
+    margin-top: 1em;
+    text-align: center;
+    
+    // Remove dropdown styling on mobile
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    
+    &:before, &:after {
+      display: none; // Remove dropdown arrows
+    }
   }
 
   &:before {
