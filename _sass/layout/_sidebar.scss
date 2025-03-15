@@ -91,24 +91,28 @@
    ========================================================================== */
 
 .author__avatar {
-  display: inline-block; // Change to inline-block for better mobile centering
-  vertical-align: middle;
-  width: 100px; // Increase mobile size
-  margin: 0 auto 1em; // Center the avatar on mobile
-
-  @include breakpoint($large) {
-    display: block;
-    width: auto;
-    height: auto;
-    margin: 0; // Reset margin for desktop
-  }
+  // Mobile styles (default)
+  display: block;
+  width: 100px;  // Increased from 80px
+  height: 100px; // Increased from 80px
+  margin: 0 auto 1em;
+  border-radius: 50%;
+  overflow: hidden;
 
   img {
-    max-width: 100px; // Smaller max-width for mobile
-    margin: 0 auto; // Center image
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0 auto;
+  }
 
-    @include breakpoint($large) {
-      max-width: 175px; // Original desktop size
+  // Desktop styles
+  @include breakpoint($large) {
+    width: 150px;  // Increased from 120px
+    height: 150px; // Increased from 120px
+    margin: 0 0 1em;
+    
+    img {
       padding: 5px;
       border: 1px solid var(--global-border-color);
     }
@@ -116,15 +120,14 @@
 }
 
 .author__content {
-  display: block; // Change to block for mobile
-  text-align: center; // Center content on mobile
-  padding: 0 15px;
-  line-height: 1.5;
+  // Mobile styles (default)
+  text-align: center;
+  margin-bottom: 2em;
 
+  // Desktop styles
   @include breakpoint($large) {
-    text-align: left; // Left align for desktop
-    padding-left: 0;
-    padding-right: 0;
+    text-align: left;
+    margin-bottom: 0;
   }
 }
 
