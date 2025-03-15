@@ -296,17 +296,15 @@
     }
   }
 
-  // Hide email and github from dropdown on mobile
-  .mobile-visible {
-    @media (min-width: #{$large - 1}) {
+  .sidebar-icon {
+    @media (max-width: #{$large - 1}) {
+      // Hide from dropdown on mobile since they're shown above
       display: none;
     }
-  }
-
-  // Hide mobile-visible items from dropdown on mobile only
-  .mobile-visible {
-    @media (max-width: #{$large - 1}) {  // Using $large instead of $large-breakpoint
-      display: none;
+    
+    @include breakpoint($large) {
+      // Show in sidebar on desktop
+      display: block;
     }
   }
 }
@@ -319,7 +317,7 @@
   margin: 1em 0;
 
   @include breakpoint($large) {
-    display: none; // Hide on desktop
+    display: none; // Hide mobile version on desktop
   }
 
   a {
