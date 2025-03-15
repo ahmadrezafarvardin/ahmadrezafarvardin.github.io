@@ -173,7 +173,7 @@
   display: block; // Change to block for mobile
   text-align: center; // Center on mobile
   position: relative;
-  vertical-align: middle;
+  // No vertical-align needed here since element is display: block
   font-family: $sans-serif;
   z-index: 10;
   position: relative;
@@ -194,6 +194,27 @@
 
     @include breakpoint($large) {
       display: none;
+    }
+  }
+
+  .mobile-primary-links {
+    display: block;
+    margin: 1em 0;
+    
+    @include breakpoint($large) {
+      display: none; // Hide on desktop since all links show there
+    }
+
+    a {
+      display: inline-block;
+      margin: 0 10px;
+      color: inherit;
+      font-size: $type-size-5;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
@@ -266,6 +287,42 @@
     padding-right: 5px;
     padding-top: 2px;
     padding-bottom: 2px;
+    color: inherit;
+    font-size: $type-size-5;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // Hide email and github from dropdown on mobile
+  .mobile-visible {
+    @media (min-width: #{$large - 1}) {
+      display: none;
+    }
+  }
+
+  // Hide mobile-visible items from dropdown on mobile only
+  .mobile-visible {
+    @media (max-width: #{$large - 1}) {  // Using $large instead of $large-breakpoint
+      display: none;
+    }
+  }
+}
+
+// If you want to show email and github icons under profile pic
+.mobile-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  margin: 1em 0;
+
+  @include breakpoint($large) {
+    display: none; // Hide on desktop
+  }
+
+  a {
     color: inherit;
     font-size: $type-size-5;
     text-decoration: none;
