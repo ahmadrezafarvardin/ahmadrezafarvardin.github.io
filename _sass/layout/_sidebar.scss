@@ -202,18 +202,17 @@
   }
 
   .mobile-primary-links {
-    display: flex; // Change to flex for better icon alignment
+    display: flex;
     justify-content: center;
-    gap: 0.5em; // Small gap between icons
+    gap: 0.5em;
     margin: 1em 0;
     
     @include breakpoint($large) {
-      display: none; // Hide on desktop since all links show there
+      display: none;
     }
 
     a {
       display: inline-block;
-      margin: 0 10px;
       color: inherit;
       font-size: $type-size-5;
       text-decoration: none;
@@ -224,6 +223,11 @@
     }
   }
 }
+
+// Remove or comment out the .mobile-icons class since it's duplicating functionality
+// .mobile-icons {
+//   ...
+// }
 
 .author__urls {
   display: none;
@@ -322,35 +326,11 @@
 
   .sidebar-icon {
     @media (max-width: #{$large - 1}) {
-      // Hide from dropdown on mobile since they're shown above
       display: none;
     }
     
     @include breakpoint($large) {
-      // Show in sidebar on desktop
       display: block;
-    }
-  }
-}
-
-// If you want to show email and github icons under profile pic
-.mobile-icons {
-  display: flex;
-  justify-content: center;
-  gap: 1.5em;
-  margin: 1em 0;
-
-  @include breakpoint($large) {
-    display: none; // Hide mobile version on desktop
-  }
-
-  a {
-    color: inherit;
-    font-size: $type-size-5;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
     }
   }
 }
