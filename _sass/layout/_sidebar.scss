@@ -9,15 +9,16 @@
 .sidebar {
   -webkit-transform: translate3d(0, 0 , 0);
           transform: translate3d(0, 0 , 0);
-
-  padding: -20px;
-  @include clearfix();
+  
+  // Reset the left position for mobile
+  position: relative;
+  left: 0;
+  padding: 1em;
   margin-bottom: 1em;
-  position: relative; // Add this line if not already present
-  left: 400px; // Adjust this value as needed to move the sidebar to the left
-   
+  
   @media (orientation: portrait) {
-    margin-top: 5em;
+    margin-top: 2em;
+    text-align: center; // Center content on mobile
   }
 
   @media screen and (min-width: $sidebar-screen-min-width) {
@@ -29,7 +30,13 @@
 
   @include breakpoint($large) {
     @include span(2 of 12);
+    height: 100vh;
+    overflow-y: auto;
+    position: fixed;
+    left: 400px; // Only apply left offset on desktop
+    padding-top: $masthead-height;
     opacity: 1;
+    text-align: left; // Reset text alignment for desktop
     -webkit-transition: opacity 0.2s ease-in-out;
             transition: opacity 0.2s ease-in-out;
 
@@ -84,24 +91,24 @@
    ========================================================================== */
 
 .author__avatar {
-  display: table-cell;
-  vertical-align: top;
-  width: 36px;
-  // set width only, for non-square avatars
-  // height: 36px;
+  display: inline-block; // Change to inline-block for better mobile centering
+  vertical-align: middle;
+  width: 100px; // Increase mobile size
+  margin: 0 auto 1em; // Center the avatar on mobile
 
   @include breakpoint($large) {
     display: block;
     width: auto;
     height: auto;
+    margin: 0; // Reset margin for desktop
   }
 
   img {
-    max-width: 175px;
-    // Remove or comment out the border-radius property
-    // border-radius: 50%;
+    max-width: 100px; // Smaller max-width for mobile
+    margin: 0 auto; // Center image
 
     @include breakpoint($large) {
+      max-width: 175px; // Original desktop size
       padding: 5px;
       border: 1px solid var(--global-border-color);
     }
@@ -109,15 +116,13 @@
 }
 
 .author__content {
-  display: table-cell;
-  vertical-align: top;
-  padding-left: 15px;
-  padding-right: 25px;
-  line-height: 1;
+  display: block; // Change to block for mobile
+  text-align: center; // Center content on mobile
+  padding: 0 15px;
+  line-height: 1.5;
 
   @include breakpoint($large) {
-    display: block;
-    width: 100%;
+    text-align: left; // Left align for desktop
     padding-left: 0;
     padding-right: 0;
   }
@@ -162,8 +167,9 @@
 }
 
 .author__urls-wrapper {
+  display: block; // Change to block for mobile
+  text-align: center; // Center on mobile
   position: relative;
-  display: table-cell;
   vertical-align: middle;
   font-family: $sans-serif;
   z-index: 10;
@@ -177,7 +183,7 @@
   }
 
   @include breakpoint($large) {
-    display: block;
+    text-align: left; // Left align for desktop
   }
 
   button {
