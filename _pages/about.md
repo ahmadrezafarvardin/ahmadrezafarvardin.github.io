@@ -25,8 +25,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a **Mathematics and Computer Science** student at the 
-[University of Tehran](https://ut.ac.ir/en), combining the rigorous 
+I am a **Mathematics and Computer Science** student at the
+[University of Tehran](https://ut.ac.ir/en), combining the rigorous
 mindset of a mathematician with a passion for Artificial Intelligence.
 
 ## Research Interests
@@ -38,10 +38,10 @@ mindset of a mathematician with a passion for Artificial Intelligence.
 
 ## What Drives Me
 
-I believe in the power of mathematical foundations to build better AI systems. 
-My goal is to bridge the gap between theoretical understanding and practical 
+I believe in the power of mathematical foundations to build better AI systems.
+My goal is to bridge the gap between theoretical understanding and practical
 applications in deep learning.
 
 ---
 
-*I'm always open to discussions about ML research and collaboration opportunities.*
+_I'm always open to discussions about ML research and collaboration opportunities._

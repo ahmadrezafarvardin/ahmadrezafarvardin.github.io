@@ -13,7 +13,7 @@ description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Interested in Machine Learning, Large Language Models (LLMs), Generative AI, and Computer Vision.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-keywords: > 
+keywords: >
   Ahmadreza Farvardin, 
   ahmadreza farvardin,
   Machine Learning, 
