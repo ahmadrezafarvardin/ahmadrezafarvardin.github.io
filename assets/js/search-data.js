@@ -55,11 +55,51 @@ ninja.data = [{
       },{id: "news-started-my-personal-website",
           title: 'Started my personal website! 🎉',
           description: "",
-          section: "News",},{id: "projects-project-3-with-very-long-name",
-          title: 'project 3 with very long name',
-          description: "a project that redirects to another website",
+          section: "News",},{id: "projects-advanced-programming",
+          title: 'Advanced Programming',
+          description: "Object-Oriented Programming projects including games and management systems",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/3_project/";
+              window.location.href = "/projects/advanced_programming/";
+            },},{id: "projects-data-structures-amp-algorithms",
+          title: 'Data Structures &amp;amp; Algorithms',
+          description: "Implementation of fundamental data structures and graph algorithms in C++",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/data_structures/";
+            },},{id: "projects-handwritten-math-recognition",
+          title: 'Handwritten Math Recognition',
+          description: "End-to-end pipeline for detecting and recognizing mathematical expressions",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/math_recognition/";
+            },},{id: "projects-ml-course-homeworks",
+          title: 'ML Course Homeworks',
+          description: "Assignments and implementations for the Machine Learning course at University of Tehran",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ml-homeworks/";
+            },},{id: "projects-nonlinear-programming",
+          title: 'Nonlinear Programming',
+          description: "Optimization algorithms and implementation of nonlinear methods",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/nlp_assignments/";
+            },},{id: "projects-resnet-18-on-cifar-10",
+          title: 'ResNet-18 on CIFAR-10',
+          description: "From-scratch PyTorch implementation achieving 94.51% test accuracy",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/resnet18-cifar10/";
+            },},{id: "projects-transformer-translation",
+          title: 'Transformer Translation',
+          description: "&#39;Attention Is All You Need&#39; implemented from scratch in PyTorch",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/transformer/";
+            },},{id: "projects-u-net-segmentation",
+          title: 'U-Net Segmentation',
+          description: "PyTorch implementation with Attention Gates achieving 0.8375 IoU",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/unet/";
+            },},{id: "projects-yolov3-object-detection",
+          title: 'YOLOv3 Object Detection',
+          description: "PyTorch implementation from scratch without pretrained weights",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/yolov3/";
             },},{
         id: 'social-email',
         title: 'email',
