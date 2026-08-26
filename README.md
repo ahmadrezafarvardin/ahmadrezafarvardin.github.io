@@ -282,6 +282,7 @@ Run the test yourself: [Google Lighthouse PageSpeed Insights](https://pagespeed.
     - [All Contributors](#all-contributors)
   - [Star History](#star-history)
   - [License](#license)
+- [Trigger deployment](#trigger-deployment)
 
 <!--te-->
 
