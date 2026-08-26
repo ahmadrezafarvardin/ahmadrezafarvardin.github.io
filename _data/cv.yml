@@ -1,13 +1,11 @@
 cv:
   name: Ahmadreza Farvardin
-  label: Math & CS Student
-  email: ahmadreza.farvardin@gmail.com
-  location: Tehran, Iran
-  image: ""
-  summary: >
-    Mathematics and Computer Science student at University of Tehran.
-    Interested in Multimodal LLMs, Embodied AI, Generative Models, Computer Vision.
-
+  # label: Math & CS Student
+  email: ahmadreza.farvardin@gmail.com  # Commented out
+  # location: Tehran, Iran
+  # summary: >
+  #   Mathematics and Computer Science student at University of Tehran.
+  #   Interested in Multimodal LLMs, Embodied AI, Generative Models, Computer Vision.
   social_networks:
     - network: GitHub
       username: ahmadrezafarvardin
@@ -16,6 +14,7 @@ cv:
     - network: X
       username: ahmadrezafv
 
+  # No sections defined - this keeps the page clean
   # All sections are now disabled/removed
   # Only the CV download link will be shown in the template
 

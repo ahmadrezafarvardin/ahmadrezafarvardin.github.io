@@ -25,7 +25,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a **Mathematics and Computer Science** student at the [University of Tehran](https://ut.ac.ir/en), ranked 2nd out of 40 in my major with a GPA of 18.05/20. I combine rigorous mathematical training with hands-on experience in deep learning and computer vision.
+I am a **Mathematics and Computer Science** student at the [University of Tehran](https://ut.ac.ir/en) (ranked 2nd out of 40 in my major). I combine rigorous mathematical training with hands-on experience in deep learning and computer vision.
 
 ## Research Interests
 
@@ -40,7 +40,7 @@ I believe in the power of mathematical foundations to create systems that percei
 
 ## Looking Ahead
 
-I am actively seeking **Master's** or **Research Assistant (RA)** positions in Artificial Intelligence, Machine Learning, and Computer Vision for Fall 2027 or Spring 2028. I am particularly interested in research groups working on multimodal AI, embodied agents, and generative models. I'm excited to contribute to impactful research and collaborate with like-minded researchers.
+I am actively seeking **Master's** or **Research Assistant (RA)** positions in Artificial Intelligence, Machine Learning, and Computer Vision for **Spring 2027, Fall 2027, or Spring 2028**. I am particularly interested in research groups working on multimodal AI, embodied agents, and generative models. I'm excited to contribute to impactful research and collaborate with like-minded researchers.
 
 ---
 
