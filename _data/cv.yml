@@ -6,8 +6,7 @@ cv:
   image: ""
   summary: >
     Mathematics and Computer Science student at University of Tehran.
-    Combining rigorous mathematical foundations with a passion for AI.
-    Interested in Generative Models, Computer Vision, NLP, and Large Language Models.
+    Interested in Multimodal LLMs, Embodied AI, Generative Models, Computer Vision.
 
   social_networks:
     - network: GitHub
@@ -17,94 +16,120 @@ cv:
     - network: X
       username: ahmadrezafv
 
-  sections:
-    Education:
-      - institution: University of Tehran
-        location: Tehran, Iran
-        url: https://ut.ac.ir/en
-        area: Mathematics (Major) & Computer Science (Minor)
-        studyType: B.Sc.
-        start_date: 2023
-        end_date: 2027
-        score: "Math: 17.80/20, CS: 18.87/20"
-        highlights:
-          - "GPA: Mathematics — 17.80/20, Computer Science — 18.87/20"
+  # All sections are now disabled/removed
+  # Only the CV download link will be shown in the template
 
-    Skills:
-      - name: Programming
-        icon: fa-solid fa-code
-        keywords: "Python, C/C++, MATLAB"
+  # The template's CV page will show:
+  # 1. Basic info (name, summary, social links)
+  # 2. A prominent link to download your CV
+  # 3. No Education, Skills, Languages, Awards, or Interests sections
+# cv:
+#   name: Ahmadreza Farvardin
+#   label: Math & CS Student
+#   email: ahmadreza.farvardin@gmail.com
+#   location: Tehran, Iran
+#   image: ""
+#   summary: >
+#     Mathematics and Computer Science student at University of Tehran.
+#     Combining rigorous mathematical foundations with a passion for AI.
+#     Interested in Generative Models, Computer Vision, NLP, and Large Language Models.
 
-      - name: ML/DL Frameworks
-        icon: fa-solid fa-brain
-        keywords: "PyTorch, Scikit-learn, NumPy, Pandas, OpenCV"
+#   social_networks:
+#     - network: GitHub
+#       username: ahmadrezafarvardin
+#     - network: LinkedIn
+#       username: ahmadreza-farvardin
+#     - network: X
+#       username: ahmadrezafv
 
-      - name: Mathematics
-        icon: fa-solid fa-square-root-variable
-        keywords: "Optimization, Linear Algebra, Probability, Statistical Modeling, Numerical Methods"
+#   sections:
+#     Education:
+#       - institution: University of Tehran
+#         location: Tehran, Iran
+#         url: https://ut.ac.ir/en
+#         area: Mathematics (Major) & Computer Science (Minor)
+#         studyType: B.Sc.
+#         start_date: 2023
+#         end_date: 2027
+#         score: "Math: 17.80/20, CS: 18.87/20"
+#         highlights:
+#           - "GPA: Mathematics — 17.80/20, Computer Science — 18.87/20"
 
-      - name: Tools
-        icon: fa-solid fa-wrench
-        keywords: "Git, Linux, JupyterLab, LaTeX, VS Code"
+#     Skills:
+#       - name: Programming
+#         icon: fa-solid fa-code
+#         keywords: "Python, C/C++, MATLAB"
 
-    Languages:
-      - name: Persian
-        summary: "Native"
-      - name: English
-        summary: "Professional Working Proficiency"
+#       - name: ML/DL Frameworks
+#         icon: fa-solid fa-brain
+#         keywords: "PyTorch, Scikit-learn, NumPy, Pandas, OpenCV"
 
-    # Projects:
-    #   - name: Mathematical Expression Recognition System
-    #     summary: >
-    #       Built a deep learning pipeline for Persian handwritten mathematical expression recognition.
-    #       Designed components for detection (YOLOv8, Faster R-CNN), clustering (K-Means/DBSCAN),
-    #       and recognition (CRNN + CTC loss). Achieved 92.3% mAP on detection and 54.35% recognition
-    #       accuracy; implemented semi-supervised learning for improvement.
-    #     highlights:
-    #       - "Machine Learning Final Project, University of Tehran (2024)"
-    #       - "Technologies: Python, PyTorch, OpenCV, NumPy, Pandas"
-    #     start_date: 2024-01-01
-    #     end_date: 2024-06-01
+#       - name: Mathematics
+#         icon: fa-solid fa-square-root-variable
+#         keywords: "Optimization, Linear Algebra, Probability, Statistical Modeling, Numerical Methods"
 
-    #   - name: Machine Learning Coursework Repository
-    #     summary: >
-    #       Implemented core ML algorithms from scratch and with modern frameworks: Naive Bayes,
-    #       Ridge/Logistic Regression, AdaBoost, PCA, GMM. Performed feature selection, ensemble
-    #       learning, clustering, and neural network experiments.
-    #     highlights:
-    #       - "Course Projects — Machine Learning, University of Tehran (2024)"
-    #       - "Technologies: Python, NumPy, Pandas, Scikit-learn, TensorFlow, Matplotlib"
-    #     start_date: 2024-01-01
-    #     end_date: 2024-06-01
+#       - name: Tools
+#         icon: fa-solid fa-wrench
+#         keywords: "Git, Linux, JupyterLab, LaTeX, VS Code"
 
-    #   - name: Nonlinear Programming Assignments
-    #     summary: >
-    #       Implemented gradient descent, Newton's method, and regularized least squares from scratch.
-    #       Explored optimization for polynomial regression, ridge regression, SVMs, and Gamma regression.
-    #     highlights:
-    #       - "Course Projects — Nonlinear Programming, University of Tehran (2024)"
-    #       - "Technologies: Python, cvxpy, NumPy, Matplotlib, statsmodels"
-    #     start_date: 2024-01-01
-    #     end_date: 2024-06-01
+#     Languages:
+#       - name: Persian
+#         summary: "Native"
+#       - name: English
+#         summary: "Professional Working Proficiency"
 
-    #   - name: Advanced Programming Projects
-    #     summary: >
-    #       Developed multiple OOP-based systems: Financial Management, Leitner System,
-    #       Parking Management, and UTaste web app. Applied inheritance, encapsulation,
-    #       and polymorphism principles.
-    #     highlights:
-    #       - "Object-Oriented Programming Course (2023)"
-    #       - "Technologies: C++, Python, JavaScript, HTML/CSS"
-    #     start_date: 2023-01-01
-    #     end_date: 2023-06-01
+#     # Projects:
+#     #   - name: Mathematical Expression Recognition System
+#     #     summary: >
+#     #       Built a deep learning pipeline for Persian handwritten mathematical expression recognition.
+#     #       Designed components for detection (YOLOv8, Faster R-CNN), clustering (K-Means/DBSCAN),
+#     #       and recognition (CRNN + CTC loss). Achieved 92.3% mAP on detection and 54.35% recognition
+#     #       accuracy; implemented semi-supervised learning for improvement.
+#     #     highlights:
+#     #       - "Machine Learning Final Project, University of Tehran (2024)"
+#     #       - "Technologies: Python, PyTorch, OpenCV, NumPy, Pandas"
+#     #     start_date: 2024-01-01
+#     #     end_date: 2024-06-01
 
-    Awards:
-      - title: First Place in Quera Competence
-        date: 2024
-        awarder: Quera
-        summary: "Awarded first place for the Final Machine Learning Project"
+#     #   - name: Machine Learning Coursework Repository
+#     #     summary: >
+#     #       Implemented core ML algorithms from scratch and with modern frameworks: Naive Bayes,
+#     #       Ridge/Logistic Regression, AdaBoost, PCA, GMM. Performed feature selection, ensemble
+#     #       learning, clustering, and neural network experiments.
+#     #     highlights:
+#     #       - "Course Projects — Machine Learning, University of Tehran (2024)"
+#     #       - "Technologies: Python, NumPy, Pandas, Scikit-learn, TensorFlow, Matplotlib"
+#     #     start_date: 2024-01-01
+#     #     end_date: 2024-06-01
 
-    Interests:
-      - name: Research Interests
-        icon: fa-solid fa-lightbulb
-        keywords: "Generative Models, Computer Vision, NLP, Large Language Models, Deep Learning Theory"
+#     #   - name: Nonlinear Programming Assignments
+#     #     summary: >
+#     #       Implemented gradient descent, Newton's method, and regularized least squares from scratch.
+#     #       Explored optimization for polynomial regression, ridge regression, SVMs, and Gamma regression.
+#     #     highlights:
+#     #       - "Course Projects — Nonlinear Programming, University of Tehran (2024)"
+#     #       - "Technologies: Python, cvxpy, NumPy, Matplotlib, statsmodels"
+#     #     start_date: 2024-01-01
+#     #     end_date: 2024-06-01
+
+#     #   - name: Advanced Programming Projects
+#     #     summary: >
+#     #       Developed multiple OOP-based systems: Financial Management, Leitner System,
+#     #       Parking Management, and UTaste web app. Applied inheritance, encapsulation,
+#     #       and polymorphism principles.
+#     #     highlights:
+#     #       - "Object-Oriented Programming Course (2023)"
+#     #       - "Technologies: C++, Python, JavaScript, HTML/CSS"
+#     #     start_date: 2023-01-01
+#     #     end_date: 2023-06-01
+
+#     Awards:
+#       - title: First Place in Quera Competence
+#         date: 2024
+#         awarder: Quera
+#         summary: "Awarded first place for the Final Machine Learning Project"
+
+#     Interests:
+#       - name: Research Interests
+#         icon: fa-solid fa-lightbulb
+#         keywords: "Generative Models, Computer Vision, NLP, Large Language Models, Deep Learning Theory"

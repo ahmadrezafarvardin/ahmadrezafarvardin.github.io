@@ -25,23 +25,23 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a **Mathematics and Computer Science** student at the
-[University of Tehran](https://ut.ac.ir/en), combining the rigorous
-mindset of a mathematician with a passion for Artificial Intelligence.
+I am a **Mathematics and Computer Science** student at the [University of Tehran](https://ut.ac.ir/en), ranked 2nd out of 40 in my major with a GPA of 18.05/20. I combine rigorous mathematical training with hands-on experience in deep learning and computer vision.
 
 ## Research Interests
 
-- **Machine Learning** — Theory and applications
-- **Large Language Models (LLMs)** — Understanding and building language AI
+- **Multimodal Large Language Models** — Building AI systems that reason across text, image, and video
+- **Embodied AI** — Intelligent agents that perceive, understand, and act in physical environments
 - **Generative Models** — Diffusion models, GANs, VAEs
-- **Computer Vision** — Visual understanding and generation
+- **Computer Vision** — Segmentation, detection, optical flow, and visual understanding
 
 ## What Drives Me
 
-I believe in the power of mathematical foundations to build better AI systems.
-My goal is to bridge the gap between theoretical understanding and practical
-applications in deep learning.
+I believe in the power of mathematical foundations to create systems that perceive, understand, and act reliably. My goal is to bridge the gap between theoretical understanding and practical applications in deep learning, with a focus on developing AI that can reason across modalities and interact meaningfully with the world.
+
+## Looking Ahead
+
+I am actively seeking **Master's** or **Research Assistant (RA)** positions in Artificial Intelligence, Machine Learning, and Computer Vision for Fall 2027 or Spring 2028. I am particularly interested in research groups working on multimodal AI, embodied agents, and generative models. I'm excited to contribute to impactful research and collaborate with like-minded researchers.
 
 ---
 
-_I'm always open to discussions about ML research and collaboration opportunities._
+_Open to discussions about research collaborations, Master's opportunities, and RA positions. Feel free to reach out!_
