@@ -1,29 +1,209 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Handwritten Math Recognition | Ahmadreza Farvardin </title> <meta name="author" content="Ahmadreza Farvardin"> <meta name="description" content="End-to-end pipeline for detecting and recognizing mathematical expressions"> <meta name="keywords" content="Ahmadreza Farvardin, ahmadreza farvardin, Machine Learning, Deep Learning, LLM, Large Language Models, Multimodal AI, Embodied AI, Generative Models, Diffusion Models, Computer Vision, Optical Flow, RAFT, Object Detection, Mathematics, Computer Science, University of Tehran, AI Researcher, Deep Learning Architectures, Transformer, YOLO, ResNet, U-Net "> <meta property="og:site_name" content="Ahmadreza Farvardin"> <meta property="og:type" content="website"> <meta property="og:title" content="Ahmadreza Farvardin | Handwritten Math Recognition"> <meta property="og:url" content="https://ahmadrezafarvardin.github.io/projects/math_recognition/"> <meta property="og:description" content="End-to-end pipeline for detecting and recognizing mathematical expressions"> <meta property="og:locale" content="en"> <meta name="twitter:card" content="summary"> <meta name="twitter:title" content="Handwritten Math Recognition"> <meta name="twitter:description" content="End-to-end pipeline for detecting and recognizing mathematical expressions"> <script type="application/ld+json">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Handwritten math recognition · Ahmadreza Farvardin</title>
+<meta name="description" content="Reading Persian handwritten mathematical expressions, from locating each symbol to producing the expression as a string. Final project for the Machine Learning course; took 1st place in the course&#39;s Quera competition.">
+<meta name="author" content="Ahmadreza Farvardin">
+<meta name="keywords" content="Ahmadreza Farvardin, Machine Learning, Deep Learning, Computer Vision, Multimodal LLMs, Embodied AI, Generative Models, Optical Flow, RAFT, PIV, Object Detection, Segmentation, Transformer, YOLO, ResNet, U-Net, Mathematics, Computer Science, University of Tehran">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ahmadrezafarvardin.github.io/projects/math_recognition/">
+<meta name="google-site-verification" content="KY-NsSUDuXn6c5yRoD4MrP6Mq32srq5jpgHku7RRojU">
+
+<!-- Open Graph / social previews -->
+<meta property="og:site_name" content="Ahmadreza Farvardin">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Handwritten math recognition · Ahmadreza Farvardin">
+<meta property="og:description" content="Reading Persian handwritten mathematical expressions, from locating each symbol to producing the expression as a string. Final project for the Machine Learning course; took 1st place in the course&#39;s Quera competition.">
+<meta property="og:url" content="https://ahmadrezafarvardin.github.io/projects/math_recognition/">
+<meta property="og:image" content="https://ahmadrezafarvardin.github.io/assets/img/og.jpg">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Portrait of Ahmadreza Farvardin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ahmadrezafv">
+<meta name="twitter:creator" content="@ahmadrezafv">
+<meta name="twitter:title" content="Handwritten math recognition · Ahmadreza Farvardin">
+<meta name="twitter:description" content="Reading Persian handwritten mathematical expressions, from locating each symbol to producing the expression as a string. Final project for the Machine Learning course; took 1st place in the course&#39;s Quera competition.">
+<meta name="twitter:image" content="https://ahmadrezafarvardin.github.io/assets/img/og.jpg">
+
+<!-- Icons -->
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151412" media="(prefers-color-scheme: dark)">
+
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/main.css?v=1792171121">
+
+
+
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TRPMF94PFJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag("js", new Date());
+  gtag("config", "G-TRPMF94PFJ");
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-        "author":
-        {
-            "@type": "Person",
-            "name": "Ahmadreza Farvardin"
-        },
-        "url": "https://ahmadrezafarvardin.github.io/projects/math_recognition/",
-        "@type": "WebSite",
-        "description": "End-to-end pipeline for detecting and recognizing mathematical expressions",
-        "headline": "Handwritten Math Recognition",
-        
-        "sameAs": ["https://github.com/ahmadrezafarvardin","https://www.linkedin.com/in/ahmadreza-farvardin","https://twitter.com/ahmadrezafv"],
-        
-        "name": "Ahmadreza Farvardin",
-        "@context": "https://schema.org"
+      "@type": "Person",
+      "@id": "https://ahmadrezafarvardin.github.io/#person",
+      "name": "Ahmadreza Farvardin",
+      "givenName": "Ahmadreza",
+      "familyName": "Farvardin",
+      "url": "https://ahmadrezafarvardin.github.io/",
+      "image": "https://ahmadrezafarvardin.github.io/assets/img/og.jpg",
+      "email": "mailto:ahmadreza.farvardin@gmail.com",
+      "jobTitle": "Undergraduate student, Mathematics & Computer Science",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Tehran",
+        "url": "https://ut.ac.ir/en"
+      },
+      "knowsAbout": ["Computer Vision","Machine Learning","Deep Learning","Optical Flow","Object Detection","Image Segmentation","Multimodal Models","Optimization"],
+      "knowsLanguage": ["fa", "en"],
+      "award": [
+        "1st place, Quera competition, Machine Learning course final project (2024)",
+        "Ranked 2nd of 40, Mathematics major, University of Tehran"
+      ],
+      "sameAs": [
+        "https://github.com/ahmadrezafarvardin",
+        "https://www.linkedin.com/in/ahmadreza-farvardin",
+        "https://x.com/ahmadrezafv"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ahmadrezafarvardin.github.io/#website",
+      "url": "https://ahmadrezafarvardin.github.io/",
+      "name": "Ahmadreza Farvardin",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://ahmadrezafarvardin.github.io/#person" }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://ahmadrezafarvardin.github.io/projects/math_recognition/#project",
+      "name": "Handwritten math recognition",
+      "description": "Reading Persian handwritten mathematical expressions, from locating each symbol to producing the expression as a string. Final project for the Machine Learning course; took 1st place in the course's Quera competition.",
+      "url": "https://ahmadrezafarvardin.github.io/projects/math_recognition/",
+      "codeRepository": "https://github.com/ahmadrezafarvardin/ML-finalProject-UT",
+      "temporalCoverage": "2024",
+      "author": { "@id": "https://ahmadrezafarvardin.github.io/#person" },
+      "isPartOf": { "@id": "https://ahmadrezafarvardin.github.io/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmadrezafarvardin.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://ahmadrezafarvardin.github.io/projects/" },
+        { "@type": "ListItem", "position": 3, "name": "Handwritten math recognition", "item": "https://ahmadrezafarvardin.github.io/projects/math_recognition/" }
+      ]
     }
-  </script> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?v=a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?v=f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?v=62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%A7%A0&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://ahmadrezafarvardin.github.io/projects/math_recognition/"> <script src="/assets/js/theme.js?v=5fea5159b787642c1bbc1f334d60f883"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
-    initTheme();
-  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Ahmadreza Farvardin </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/teaching/">Teaching </a> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Handwritten Math Recognition</h1> <p class="post-description">End-to-end pipeline for detecting and recognizing mathematical expressions</p> </header> <article> <h2 id="overview">Overview</h2> <p>A comprehensive deep learning pipeline for detecting, localizing, and recognizing handwritten mathematical expressions. This was developed as the final project for the Machine Learning course at the <strong>University of Tehran</strong> (ECE Department).</p> <p>The system tackles the problem in three stages:</p> <ol> <li> <strong>Detection:</strong> Locating characters in the image.</li> <li> <strong>Clustering:</strong> Grouping characters to understand structure.</li> <li> <strong>Recognition:</strong> Translating the visual features into a LaTeX-like string.</li> </ol> <h2 id="methodology">Methodology</h2> <h3 id="1-character-detection--localization">1. Character Detection &amp; Localization</h3> <p>I implemented and compared two state-of-the-art object detection models:</p> <ul> <li> <strong>YOLOv8:</strong> Optimized for real-time performance.</li> <li> <strong>Faster R-CNN:</strong> Prioritized for higher precision localization.</li> </ul> <h3 id="2-character-clustering">2. Character Clustering</h3> <p>To analyze the spatial relationships between characters, I applied unsupervised learning techniques:</p> <ul> <li> <strong>Algorithms:</strong> K-Means, DBSCAN, and Hierarchical Clustering.</li> <li> <strong>Feature Extraction:</strong> Used HOG (Histogram of Oriented Gradients) and CNN-based features to group similar characters.</li> </ul> <h3 id="3-expression-recognition-crnn">3. Expression Recognition (CRNN)</h3> <p>The core recognition engine is a <strong>CRNN (Convolutional Recurrent Neural Network)</strong> trained with <strong>CTC (Connectionist Temporal Classification)</strong> loss. This architecture allows the model to read the expression from left to right without requiring segmented character labels.</p> <ul> <li> <strong>Supervised Learning:</strong> Trained on the base dataset.</li> <li> <strong>Semi-Supervised Learning:</strong> Enhanced performance by using pseudo-labeling on the test set to iteratively improve the model.</li> </ul> <h2 id="results">Results</h2> <table> <thead> <tr> <th>Model</th> <th>Task</th> <th>Metric</th> <th>Score</th> </tr> </thead> <tbody> <tr> <td><strong>YOLOv8</strong></td> <td>Character Detection</td> <td>mAP</td> <td><strong>92.3%</strong></td> </tr> <tr> <td><strong>Faster R-CNN</strong></td> <td>Localization</td> <td>mAP</td> <td>89.7%</td> </tr> <tr> <td><strong>Supervised CRNN</strong></td> <td>Expression Rec.</td> <td>Accuracy</td> <td>54.35%</td> </tr> <tr> <td><strong>Semi-Supervised CRNN</strong></td> <td>Expression Rec.</td> <td>Accuracy</td> <td><strong>~60.0%</strong></td> </tr> </tbody> </table> <p><em>Note: The semi-supervised approach significantly improved recognition by leveraging unlabelled test data.</em></p> <h2 id="pipeline">Pipeline</h2> <pre><code class="language-mermaid">graph LR
-    A[Input Image] --&gt; B[YOLOv8 / Faster R-CNN]
-    B --&gt; C{Character Features}
-    C --&gt; D[Unsupervised Clustering]
-    C --&gt; E[CRNN + CTC Loss]
-    E --&gt; F[Semi-Supervised Loop]
-    F --&gt; G[Final LaTeX Output]
-</code></pre> <h2 id="key-technologies">Key Technologies</h2> <ul> <li> <strong>PyTorch</strong> for all model implementations.</li> <li> <strong>YOLOv8</strong> &amp; <strong>Faster R-CNN</strong> for object detection.</li> <li> <strong>CRNN</strong> with <strong>ResNet50</strong> backbone for sequence recognition.</li> <li> <strong>Scikit-Learn</strong> for clustering and data analysis.</li> </ul> <h2 id="code">Code</h2> <p>Full implementation and training scripts are available on <a href="https://github.com/ahmadrezafarvardin/ML-finalProject-UT" rel="external nofollow noopener" target="_blank">GitHub →</a></p> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Ahmadreza Farvardin. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Last updated: August 26, 2026. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?v=85ddb88934d28b74e78031fd54cf8308"></script> <script src="/assets/js/no_defer.js?v=2781658a0a2b13ed609542042a859126"></script> <script defer src="/assets/js/common.js?v=c15de51d4bb57887caa2c21988d97279"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=d9f17b6adc2311cbabd747f4538bb15f"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?v=a5bb4e6a542c546dd929b24b8b236dfd"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRPMF94PFJ"></script> <script defer src="/assets/js/google-analytics-setup.js"></script> <script defer src="/assets/js/progress-bar.js?v=2f30e0e6801ea8f5036fa66e1ab0a71a" type="text/javascript"></script> <script src="/assets/js/vanilla-back-to-top.min.js?v=f40d453793ff4f64e238e420181a1d17"></script> <script>
-    addBackToTop();
-  </script> <script type="module" src="/assets/js/search/ninja-keys.min.js?v=a3446f084dcaecc5f75aa1757d087dcf"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/js/search-setup.js?v=6c304f7b1992d4b60f7a07956e52f04a"></script> <script src="/assets/js/search-data.js"></script> <script src="/assets/js/shortcut-key.js?v=ccc841c459bfc0e64c1c2b5acd10df02"></script> </body> </html>
+  ]
+}
+</script>
+
+
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head wrap">
+  <a class="wordmark" href="/">Ahmadreza Farvardin</a>
+  <nav aria-label="Main">
+    
+    <a href="/projects/" aria-current="page">Projects</a>
+    <a href="/cv/" >CV</a>
+    <a href="mailto:ahmadreza.farvardin@gmail.com">Email</a>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18V3z" fill="currentColor"/><circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+  </nav>
+</header>
+
+<main id="main">
+<article class="wrap page project">
+  <a class="back" href="/projects/">← All projects</a>
+  <header class="page-head">
+    <p class="kicker">Course project · 2024 · 1st place, Quera competition</p>
+    <h1>Handwritten math recognition</h1>
+    <p class="lede">Reading Persian handwritten mathematical expressions, from locating each symbol to producing the expression as a string. Final project for the Machine Learning course; took 1st place in the course's Quera competition.</p>
+    
+    <dl class="stats">
+      <div><dt>Detection mAP (YOLOv8)</dt><dd>92.3%</dd></div><div><dt>Detection mAP (Faster R-CNN)</dt><dd>89.7%</dd></div><div><dt>Expression accuracy</dt><dd>54.35%</dd></div><div><dt>Mean edit distance</dt><dd>0.83</dd></div>
+    </dl>
+    
+    <p class="links">
+      <a href="https://github.com/ahmadrezafarvardin/ML-finalProject-UT">Code on GitHub ↗</a>
+      <span class="stack">PyTorch · YOLOv8 · Faster R-CNN · scikit-learn</span>
+    </p>
+  </header>
+  <div class="prose">
+<p>This was the final project for the Machine Learning course at the University of Tehran, run as a competition on Quera. The input is an image of a handwritten expression such as <code>(5-2)/3</code>, and the output is that expression as a string. The test images came without labels.</p>
+
+<ol class="pipeline">
+  <li><b>Clean</b> Validate annotations, fix out-of-bounds boxes, remove outliers and corrupted images</li>
+  <li><b>Detect</b> Locate every character with YOLOv8 or Faster R-CNN</li>
+  <li><b>Analyse</b> Cluster the detected characters (K-Means, DBSCAN, hierarchical) on HOG, CNN and statistical features to study the character set</li>
+  <li><b>Recognise</b> Read the whole expression with a CRNN trained with CTC loss, with test-time augmentation at inference</li>
+</ol>
+
+<h2 id="detection">Detection</h2>
+
+<p>I trained two detectors on the character boxes. YOLOv8 reached 92.3% mAP and Faster R-CNN 89.7%, so YOLOv8 was both faster and more accurate on this data.</p>
+
+<h2 id="recognition-what-worked-and-what-didnt">Recognition: what worked and what didn’t</h2>
+
+<p>My first approach was to classify characters one at a time: crop each detected symbol, train a classifier on the crops using the clustering results, then assemble the expression. It reached <strong>4.08%</strong> expression accuracy. Character alignment errors, too little real labelled data, and mistakes carried over from detection compounded at every stage, and one wrong symbol is enough to ruin an expression.</p>
+
+<p>So I switched to reading the expression in one pass. The recogniser is a CRNN (a CNN feature extractor initialised from a pretrained ResNet-50, followed by a recurrent sequence model) trained with CTC loss. CTC learns the alignment between image columns and output characters by itself, so the model never needs to know where each character starts and ends. This raised expression accuracy to <strong>54.35%</strong>, with a mean edit distance of 0.83.</p>
+
+<p>For stable training I used gradient clipping and <code>zero_infinity=True</code> in the CTC loss, which stops impossible alignments from producing infinite losses.</p>
+
+<h2 id="using-the-unlabelled-test-set">Using the unlabelled test set</h2>
+
+<p>Because the test images were unlabelled, I also built a self-training loop. The supervised model predicts on the test images, and predictions above a confidence threshold (0.9–0.95) go back into training as pseudo-labels, weighted at 0.5 relative to real labels. I haven’t yet measured this variant on held-out labelled data, so 54.35% is the result I report.</p>
+
+<h2 id="what-id-try-next">What I’d try next</h2>
+
+<p>Beam-search decoding instead of greedy CTC decoding, an attention layer in the CRNN, grammar constraints so the model can’t output invalid expressions, and synthetic training data.</p>
+
+  </div>
+</article>
+
+</main>
+
+<footer class="site-foot wrap">
+  <div class="foot-links">
+    <a href="mailto:ahmadreza.farvardin@gmail.com">ahmadreza.farvardin@gmail.com</a>
+    <a href="https://github.com/ahmadrezafarvardin">GitHub</a>
+    <a href="https://www.linkedin.com/in/ahmadreza-farvardin">LinkedIn</a>
+    <a href="https://x.com/ahmadrezafv">X</a>
+  </div>
+  <p class="foot-meta">Tehran · updated October 2026</p>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>
