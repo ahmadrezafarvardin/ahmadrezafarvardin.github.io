@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<article class="wrap page project">
+  <a class="back" href="{{ '/projects/' | relative_url }}">← All projects</a>
+  <header class="page-head">
+    <p class="kicker">{{ page.kind }} · {{ page.year }}{% if page.context %} · {{ page.context }}{% endif %}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="lede">{{ page.summary }}</p>
+    {% if page.stats %}
+    <dl class="stats">
+      {% for s in page.stats %}<div><dt>{{ s.label }}</dt><dd>{{ s.value }}</dd></div>{% endfor %}
+    </dl>
+    {% endif %}
+    <p class="links">
+      {% if page.github %}<a href="{{ page.github }}">Code on GitHub ↗</a>{% endif %}
+      {% if page.stack %}<span class="stack">{{ page.stack }}</span>{% endif %}
+    </p>
+  </header>
+  <div class="prose">
+{{ content }}
+  </div>
+</article>

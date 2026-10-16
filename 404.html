@@ -1,0 +1,22 @@
+---
+layout: default
+title: Not found
+permalink: /404.html
+sitemap: false
+noindex: true
+body_class: lost
+---
+<div class="wrap page lost-grid">
+  <div>
+    <p class="kicker">404</p>
+    <h1>Nothing here.</h1>
+    <p class="lede">That page doesn't exist, or it moved when I rebuilt the site. The horses don't know where it went either.</p>
+    <p class="actions">
+      <a class="btn" href="{{ '/' | relative_url }}">Home</a>
+      <a class="btn ghost" href="{{ '/projects/' | relative_url }}">Projects</a>
+    </p>
+  </div>
+  <figure class="lost-photo">
+    <img src="{{ '/assets/img/field.jpg' | relative_url }}" width="960" height="1280" alt="Three horses grazing among blossoming trees below cloud-covered hills">
+  </figure>
+</div>

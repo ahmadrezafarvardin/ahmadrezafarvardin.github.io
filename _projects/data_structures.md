@@ -1,40 +1,21 @@
 ---
-layout: page
-title: Data Structures & Algorithms
-description: Implementation of fundamental data structures and graph algorithms in C++
-img: https://placehold.co/600x400/1565c0/ffffff?text=C%2B%2B+Algorithms
-importance: 3
-category: fun
+title: Data Structures coursework
+short: A linked-list music player and five graph and range-query problems in C++17.
+summary: C++ assignments for the Data Structures and Algorithms course at the University of Tehran.
+kind: Coursework
+group: coursework
 github: https://github.com/ahmadrezafarvardin/DataStructure-UT
+stack: C++17 · Make · GDB
 ---
 
-## Overview
+**CA1: music player.** A playlist on a circular doubly linked list, with playback controls (play, pause, next, previous) built using the State pattern.
 
-A collection of C++ implementations for the **Data Structures and Algorithms** course at the **University of Tehran**, focusing on memory management, graph theory, and efficient query processing.
+**CA2: graph and query problems.** Five competitive-programming-style problems, each in its own folder, compiled with `g++ -std=gnu++17 -O2`:
 
-## Assignments Breakdown
-
-### CA1: Music Player Simulation
-*   **Design:** Modular object-oriented architecture.
-*   **Core Structure:** Circular Doubly Linked List for playlist management.
-*   **Pattern:** State pattern for handling playback controls (Play, Pause, Next, Previous).
-
-### CA2: Advanced Graph Algorithms
-Solutions to 5 competitive programming-style problems involving complex graph traversals and optimizations:
-
-| Problem | Key Concepts | Technique |
-|---------|--------------|-----------|
-| **Q1** | Bottleneck Paths | Kruskal's MST + LCA with Binary Lifting |
-| **Q2** | Fuel Constraints | Dijkstra's Algorithm with state expansion |
-| **Q3** | Traffic Delays | Modified Shortest Path with waiting times |
-| **Q4** | Dynamic Routing | Extended state Dijkstra with refueling logic |
-| **Q5** | Range Queries | Fenwick Tree + Coordinate Compression |
-
-## Technologies Used
-*   **C++17** (STL, Pointers)
-*   **Makefiles** for build automation
-*   **GDB** for debugging
-
-## Code
-
-Complete source code and problem statements available on [GitHub →](https://github.com/ahmadrezafarvardin/DataStructure-UT)
+| | Problem | Technique |
+|---|---|---|
+| Q1 | Bottleneck path queries | Maximum spanning tree (Kruskal + DSU), then LCA with binary lifting |
+| Q2 | Shortest path with limited fuel | Dijkstra allowing a single refuelling stop |
+| Q3 | Shortest path with traffic lights | Dijkstra with waiting times at each light |
+| Q4 | Fuel stations and traffic lights | Dijkstra over an extended state that tracks station visits |
+| Q5 | Dynamic insertions and range counts | Fenwick tree + coordinate compression |

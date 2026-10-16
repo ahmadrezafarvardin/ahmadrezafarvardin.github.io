@@ -1,117 +1,61 @@
 ---
-layout: page
-title: YOLOv3 Object Detection
-description: PyTorch implementation from scratch without pretrained weights
-img: https://placehold.co/600x400/333333/ffffff?text=YOLOv3
-importance: 3
-category: work
-github: https://github.com/ahmadrezafarvardin/yolov3-detection
+title: YOLOv3, from scratch
+short: Darknet-53 and a three-scale detection head trained from random init on 4k COCO images and one GPU.
+summary: YOLOv3 implemented in PyTorch and trained on COCO without any pretrained weights, to see how far the architecture gets on a student's compute budget.
+headline: no pretrained weights
+kind: Implementation
+group: builds
+year: 2024–25
+featured: true
+order: 4
+math: true
+stats:
+  - { label: Parameters, value: "61.9M" }
+  - { label: Total loss, value: "99.6 → ~32" }
+  - { label: Training, value: "~3 h, 1× T4" }
+github: https://github.com/ahmadrezafarvardin/YOLOv3-Detection
+stack: PyTorch · COCO
 ---
 
-## Overview
+An implementation of [YOLOv3](https://arxiv.org/abs/1804.02767) with no pretrained backbone. The original was trained on 118k images for roughly 300 epochs, starting from an ImageNet-pretrained backbone, on 8 GPUs for about a week. This version gets 4,000 images from COCO val2017, 30 epochs, and a Colab T4 for three hours. The point was never to match the paper's numbers, but to get every part of the detector working and learning.
 
-A PyTorch implementation of [YOLOv3](https://arxiv.org/abs/1804.02767) trained on COCO, built entirely from scratch without pretrained weights.
-
-## Results
-
-Training from scratch on COCO val2017 subset (4K images, 30 epochs):
-
-| Component | Epoch 1 | Epoch 30 | Reduction |
-|-----------|---------|----------|-----------|
-| **Total Loss** | **99.6** | **~32** | **68%** |
-| Coord Loss | 47.4 | ~9.5 | 80% |
-| Obj Loss | 14.0 | ~9.8 | 30% |
-| NoObj Loss | 17.3 | ~2.9 | 83% |
-| Class Loss | 20.9 | ~11.3 | 46% |
-
-**Model:** 61.9M parameters | **Training time:** ~3 hours (Colab T4)
-
-### Training Conditions vs Original Paper
-
-| Feature | This Implementation | Original YOLOv3 |
+| | This implementation | Original YOLOv3 |
 |---|---|---|
-| **Training images** | 4,000 | 118,000 |
-| **Epochs** | 30 | ~300 equivalent |
-| **Backbone** | From scratch | Pretrained on ImageNet |
-| **Hardware** | 1× T4 GPU, 3 hours | 8× GPU, ~1 week |
-| **Purpose** | Architecture demonstration | State-of-the-art |
+| Training images | 4,000 | 118,000 |
+| Epochs | 30 | ~300 equivalent |
+| Backbone | random init | ImageNet-pretrained |
+| Hardware | 1× T4, ~3 h | 8 GPUs, ~1 week |
 
-## Architecture
+## The network
 
-The architecture uses a Darknet-53 backbone and a Feature Pyramid Network (FPN) to detect objects at 3 scales.
+A Darknet-53 backbone feeds a feature-pyramid neck that predicts at three scales: 13×13 for large objects, 26×26 for medium, and 52×52 for small. That gives 10,647 raw boxes per 416×416 image before non-max suppression. Nine anchors, found by k-means, are split three per scale and matched to objects by shape IoU.
 
-```text
-Input (3×416×416)
-│
-├── Darknet-53 Backbone
-│   ├── Stem: Conv(3→32)
-│   ├── Stage 1: ↓2, 64ch,  1 residual block
-│   ├── Stage 2: ↓2, 128ch, 2 residual blocks
-│   ├── Stage 3: ↓2, 256ch, 8 residual blocks  ──→ route_1 (52×52)
-│   ├── Stage 4: ↓2, 512ch, 8 residual blocks  ──→ route_2 (26×26)
-│   └── Stage 5: ↓2, 1024ch, 4 residual blocks ──→ route_3 (13×13)
-│
-├── FPN Neck + Detection Heads
-│   ├── Scale 1: ConvSet(1024) → Detect(13×13)  ← large objects
-│   │     ↓ upsample + concat(route_2)
-│   ├── Scale 2: ConvSet(768)  → Detect(26×26)  ← medium objects
-│   │     ↓ upsample + concat(route_1)
-│   └── Scale 3: ConvSet(384)  → Detect(52×52)  ← small objects
-│
-└── Output: 10,647 raw predictions → NMS → final detections
-```
+Each box is predicted relative to its grid cell $$(c_x, c_y)$$ and anchor $$(p_w, p_h)$$:
 
-### Bounding Box Prediction Math
+$$b_x = \sigma(t_x) + c_x \qquad b_y = \sigma(t_y) + c_y \qquad b_w = p_w e^{t_w} \qquad b_h = p_h e^{t_h}$$
 
-YOLOv3 predicts coordinates relative to the grid cell ($c_x, c_y$) and anchors ($p_w, p_h$):
+and the loss weights four terms:
 
-$$ b_x = \sigma(t_x) + c_x $$
+$$L = 5\,\mathrm{MSE}_{box} + \mathrm{BCE}_{obj} + 0.5\,\mathrm{BCE}_{noobj} + \mathrm{BCE}_{cls}$$
 
-$$ b_y = \sigma(t_y) + c_y $$
+## Keeping the loss stable
 
-$$ b_w = p_w \cdot e^{t_w} $$
+With no pretrained backbone, the early predictions are essentially random, and the $$e^{t_w}$$ term can turn them into enormous box sizes. I guarded against this in three ways: clamping both predictions and targets to $$[-5, 5]$$ before the box loss, normalising the no-object loss by the number of no-object cells instead of the number of ground-truth boxes (otherwise the thousands of empty cells swamp everything else), and clipping gradients.
 
-$$ b_h = p_h \cdot e^{t_h} $$
+Total loss fell from 99.6 to about 32 over 30 epochs:
 
-$$ \text{obj} = \sigma(t_o) $$
+| Loss term | Epoch 1 | Epoch 30 |
+|---|---|---|
+| Coordinates | 47.4 | ~9.5 |
+| Objectness | 14.0 | ~9.8 |
+| No-object | 17.3 | ~2.9 |
+| Class | 20.9 | ~11.3 |
+| **Total** | **99.6** | **~32** |
 
-$$ \text{cls}_i = \sigma(c_i) $$
+I report loss rather than COCO mAP on purpose. With 4,000 images and 30 epochs this detector is nowhere near the paper's accuracy, and it was never meant to be: the goal was a complete, correct implementation of every part of YOLOv3.
 
-### Loss Function
-
-A multi-part loss function balancing localization, objectness, and classification:
-
-$$ L = 5 \cdot \text{MSE}_{box} + 1 \cdot \text{BCE}_{obj} + 0.5 \cdot \text{BCE}_{noobj} + 1 \cdot \text{BCE}_{class} $$
-
-## Project Structure
-
-```bash
-├── config.py      # All hyperparameters, anchors, paths
-├── model.py       # Darknet-53 + FPN + detection heads
-├── losses.py      # Multi-scale YOLO loss with stability fixes
-├── data.py        # COCO dataset loading and augmentation
-├── utils.py       # IoU, NMS, decoding, visualization, checkpoints
-├── train.py       # Training loop with resumption support
-└── evaluate.py    # Evaluation and prediction diagnostics
-```
-
-## Key Implementation Details
-
-### Stability Fix
-The original loss can explode due to $$ e^{t_w} $$ producing extreme values. We clamp both predictions and targets to `[-5, 5]` and normalize the no-object loss by its own count rather than by the number of ground truth boxes.
-
-### Resumable Training
-Checkpoints (model + optimizer + scheduler + history) are saved every 3 epochs. Training automatically resumes from the latest checkpoint.
-
-### Multi-Scale Detection
-9 anchor boxes clustered by k-means, split across 3 detection scales. Each scale uses 3 anchors matched to objects by shape IoU.
+Checkpoints (model, optimiser, scheduler and loss history) go to Google Drive every three epochs, and training resumes from the latest one automatically, because Colab sessions disconnect.
 
 ## References
 
-- Redmon & Farhadi, ["YOLOv3: An Incremental Improvement"](https://arxiv.org/abs/1804.02767), 2018
-- Redmon & Farhadi, ["YOLO9000: Better, Faster, Stronger"](https://arxiv.org/abs/1612.08242), CVPR 2017
-- Lin et al., ["Feature Pyramid Networks"](https://arxiv.org/abs/1612.03144), CVPR 2017
-
-## Code
-
-Full implementation available on [GitHub →](https://github.com/ahmadrezafarvardin/YOLOv3-Detection)
+Redmon & Farhadi, [YOLOv3: An Incremental Improvement](https://arxiv.org/abs/1804.02767), 2018 · Redmon & Farhadi, [YOLO9000](https://arxiv.org/abs/1612.08242), CVPR 2017 · Lin et al., [Feature Pyramid Networks](https://arxiv.org/abs/1612.03144), CVPR 2017

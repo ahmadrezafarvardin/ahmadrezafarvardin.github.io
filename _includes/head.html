@@ -1,0 +1,102 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- if page.url == "/" -%}
+  {%- assign page_title = site.title | append: " · " | append: site.tagline -%}
+{%- else -%}
+  {%- assign page_title = page.title | append: " · " | append: site.title -%}
+{%- endif -%}
+{%- assign page_desc = page.summary | default: page.description | default: site.description | strip_html | normalize_whitespace | strip -%}
+{%- assign canonical = page.url | replace: "index.html", "" | absolute_url -%}
+{%- assign og_image = page.og_image | default: site.author.image | absolute_url -%}
+
+<title>{{ page_title }}</title>
+<meta name="description" content="{{ page_desc | escape }}">
+<meta name="author" content="{{ site.author.name }}">
+<meta name="keywords" content="{{ page.keywords | default: site.keywords | normalize_whitespace | strip | escape }}">
+{%- if page.noindex %}
+<meta name="robots" content="noindex, follow">
+{%- else %}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="{{ canonical }}">
+{%- endif %}
+{%- if site.google_site_verification %}
+<meta name="google-site-verification" content="{{ site.google_site_verification }}">
+{%- endif %}
+{%- if site.bing_site_verification %}
+<meta name="msvalidate.01" content="{{ site.bing_site_verification }}">
+{%- endif %}
+
+<!-- Open Graph / social previews -->
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="{% if page.collection == 'projects' %}article{% elsif page.url == '/' %}profile{% else %}website{% endif %}">
+<meta property="og:title" content="{{ page_title | escape }}">
+<meta property="og:description" content="{{ page_desc | escape }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:image" content="{{ og_image }}">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Portrait of {{ site.author.name }}">
+{%- if page.url == "/" %}
+<meta property="profile:first_name" content="Ahmadreza">
+<meta property="profile:last_name" content="Farvardin">
+{%- endif %}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@{{ site.author.x }}">
+<meta name="twitter:creator" content="@{{ site.author.x }}">
+<meta name="twitter:title" content="{{ page_title | escape }}">
+<meta name="twitter:description" content="{{ page_desc | escape }}">
+<meta name="twitter:image" content="{{ og_image }}">
+
+<!-- Icons -->
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="48x48">
+<link rel="icon" href="{{ '/assets/icons/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ '/assets/icons/icon-180.png' | relative_url }}">
+<link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+<meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151412" media="(prefers-color-scheme: dark)">
+
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+{%- if page.url == "/" %}
+<link rel="preload" as="image" href="{{ '/assets/img/portrait.jpg' | relative_url }}" fetchpriority="high">
+{%- endif %}
+
+{% if page.math %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+  // kramdown leaves $...$ (inline, span) and $$...$$ (display, div) in .kdmath elements
+  addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".kdmath").forEach(function (el) {
+      var display = el.tagName === "DIV";
+      var tex = el.textContent.trim().replace(/^\$+|\$+$/g, "").replace(/^\\\[|\\\]$/g, "");
+      try { katex.render(tex, el, { displayMode: display, throwOnError: false }); } catch (e) {}
+    });
+  });
+</script>
+{% endif %}
+
+{% if jekyll.environment == "production" and site.google_analytics %}
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag("js", new Date());
+  gtag("config", "{{ site.google_analytics }}");
+</script>
+{% endif %}
+
+{% include schema.html %}

@@ -1,0 +1,35 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+description: Research, from-scratch model implementations, and coursework by Ahmadreza Farvardin.
+---
+<div class="wrap page">
+  <header class="page-head">
+    <h1>Projects</h1>
+    <p class="lede">Research first, then models I rebuilt from their papers, then coursework. Code for everything is on <a href="https://github.com/{{ site.author.github }}">GitHub</a>.</p>
+  </header>
+
+  {% assign groups = "research|Research|builds|Built from the paper|coursework|Coursework" | split: "|" %}
+  {% for i in (0..2) %}
+    {% assign gi = i | times: 2 %}{% assign key = groups[gi] %}{% assign gl = gi | plus: 1 %}
+    {% assign items = site.projects | where: "group", key | sort: "order" %}
+    <section class="block">
+      <h2 class="section-label">{{ groups[gl] }}</h2>
+      <ol class="worklist">
+        {% for p in items %}
+        <li>
+          <a href="{{ p.url | relative_url }}">
+            <span class="w-year">{{ p.year | default: "&nbsp;" }}</span>
+            <span class="w-main">
+              <span class="w-title">{{ p.title }}</span>
+              <span class="w-sum">{{ p.short }}</span>
+            </span>
+            <span class="w-metric">{{ p.headline }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ol>
+    </section>
+  {% endfor %}
+</div>

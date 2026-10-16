@@ -1,0 +1,100 @@
+{%- comment -%}
+  Structured data (schema.org JSON-LD). Every page describes the same Person,
+  referenced by @id, so search engines can tie all pages to one entity.
+{%- endcomment -%}
+{%- assign person_id = "/#person" | absolute_url -%}
+{%- assign site_id = "/#website" | absolute_url -%}
+{%- assign canonical = page.url | replace: "index.html", "" | absolute_url -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": {{ person_id | jsonify }},
+      "name": {{ site.author.name | jsonify }},
+      "givenName": "Ahmadreza",
+      "familyName": "Farvardin",
+      "url": {{ "/" | absolute_url | jsonify }},
+      "image": {{ site.author.image | absolute_url | jsonify }},
+      "email": {{ "mailto:" | append: site.author.email | jsonify }},
+      "jobTitle": {{ site.author.job_title | jsonify }},
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Tehran",
+        "url": "https://ut.ac.ir/en"
+      },
+      "knowsAbout": {{ site.author.knows_about | jsonify }},
+      "knowsLanguage": ["fa", "en"],
+      "award": [
+        "1st place, Quera competition, Machine Learning course final project (2024)",
+        "Ranked 2nd of 40, Mathematics major, University of Tehran"
+      ],
+      "sameAs": [
+        "https://github.com/{{ site.author.github }}",
+        "https://www.linkedin.com/in/{{ site.author.linkedin }}",
+        "https://x.com/{{ site.author.x }}"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": {{ site_id | jsonify }},
+      "url": {{ "/" | absolute_url | jsonify }},
+      "name": {{ site.title | jsonify }},
+      "inLanguage": "en",
+      "publisher": { "@id": {{ person_id | jsonify }} }
+    }
+    {%- if page.url == "/" -%},
+    {
+      "@type": "ProfilePage",
+      "@id": {{ canonical | append: "#page" | jsonify }},
+      "url": {{ canonical | jsonify }},
+      "name": {{ site.title | append: " · " | append: site.tagline | jsonify }},
+      "isPartOf": { "@id": {{ site_id | jsonify }} },
+      "mainEntity": { "@id": {{ person_id | jsonify }} },
+      "dateModified": {{ site.time | date_to_xmlschema | jsonify }}
+    }
+    {%- elsif page.collection == "projects" -%},
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": {{ canonical | append: "#project" | jsonify }},
+      "name": {{ page.title | jsonify }},
+      "description": {{ page.summary | strip_html | normalize_whitespace | jsonify }},
+      "url": {{ canonical | jsonify }},
+      {%- if page.github %}
+      "codeRepository": {{ page.github | jsonify }},
+      {%- endif %}
+      {%- if page.year %}
+      "temporalCoverage": {{ page.year | replace: "–", "/20" | jsonify }},
+      {%- endif %}
+      "author": { "@id": {{ person_id | jsonify }} },
+      "isPartOf": { "@id": {{ site_id | jsonify }} }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ "/" | absolute_url | jsonify }} },
+        { "@type": "ListItem", "position": 2, "name": "Projects", "item": {{ "/projects/" | absolute_url | jsonify }} },
+        { "@type": "ListItem", "position": 3, "name": {{ page.title | jsonify }}, "item": {{ canonical | jsonify }} }
+      ]
+    }
+    {%- elsif page.title -%},
+    {
+      "@type": "WebPage",
+      "@id": {{ canonical | append: "#page" | jsonify }},
+      "url": {{ canonical | jsonify }},
+      "name": {{ page.title | append: " · " | append: site.title | jsonify }},
+      "isPartOf": { "@id": {{ site_id | jsonify }} },
+      "about": { "@id": {{ person_id | jsonify }} }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ "/" | absolute_url | jsonify }} },
+        { "@type": "ListItem", "position": 2, "name": {{ page.title | jsonify }}, "item": {{ canonical | jsonify }} }
+      ]
+    }
+    {%- endif %}
+  ]
+}
+</script>

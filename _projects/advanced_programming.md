@@ -1,45 +1,20 @@
 ---
-layout: page
-title: Advanced Programming
-description: Object-Oriented Programming projects including games and management systems
-img: https://placehold.co/600x400/43a047/ffffff?text=OOP+Projects
-importance: 4
-category: fun
+title: Advanced Programming coursework
+short: Object-oriented C++ projects, including a food-ordering web app and a graphical game.
+summary: Projects for the Advanced Programming (object-oriented C++) course at the University of Tehran.
+kind: Coursework
+group: coursework
+year: 2023
 github: https://github.com/ahmadrezafarvardin/AdvancedProgramming-projects-UT
+stack: C++ · HTML/CSS/JS
 ---
 
-## Overview
+**UTaste.** The largest project: a food-ordering app with a C++ backend (user sessions, orders, persistence) and an HTML/CSS/JavaScript front end, split into separate modules for communication, data loading, exceptions and the core system, with a suite of 20 test cases.
 
-A portfolio of diverse applications developed for the **Advanced Programming** course at the **University of Tehran**. These projects demonstrate the practical application of Object-Oriented Programming (OOP) principles like inheritance, polymorphism, and design patterns.
+**Sheep Fight.** A graphical strategy game in C++ with its own game loop and rendering.
 
-## Featured Projects
+**Leitner system.** Spaced-repetition flashcards, with unit tests for the scheduling logic.
 
-### 🎮 UTaste (Full-Stack App)
-A comprehensive food ordering system with a separation of concerns:
-*   **Frontend:** HTML/CSS/JavaScript.
-*   **Backend:** C++ core logic handling user sessions, order processing, and data persistence.
-*   **Architecture:** Modular design with distinct layers for Communication, Data Loading, and Exception Handling.
+**Recursion exercises.** Ten progressive problems on recursive techniques.
 
-### ⚔️ Sheep Fight (Game)
-A graphical strategy game implemented in C++:
-*   Includes multimedia assets (audio, fonts, images).
-*   Features custom game loop and rendering logic.
-
-### 🧠 Leitner System
-An implementation of the spaced repetition learning method:
-*   Structured with unit tests to verify algorithm correctness.
-*   Demonstrates proper memory management and class design.
-
-### 🚗 Management Systems
-*   **Parking Management:** Tracking vehicle entry/exit and space allocation.
-*   **Financial Management:** Transaction recording and reporting system.
-
-## Key Concepts
-*   **Encapsulation & Abstraction**
-*   **Design Patterns** (MVC, Factory)
-*   **Memory Management**
-*   **Unit Testing**
-
-## Code
-
-Explore the full implementations on [GitHub →](https://github.com/ahmadrezafarvardin/AdvancedProgramming-projects-UT)
+**Parking and finance managers.** Smaller exercises in class design: tracking vehicle entry, exit and space allocation, and recording and reporting transactions.

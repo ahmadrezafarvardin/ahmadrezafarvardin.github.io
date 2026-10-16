@@ -1,0 +1,79 @@
+---
+layout: default
+body_class: home
+---
+<section class="hero">
+  <canvas class="flow" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <h1>Ahmadreza Farvardin</h1>
+      <p class="hero-sub">Mathematics &amp; Computer Science, <a href="https://ut.ac.ir/en">University of Tehran</a></p>
+
+      <p>I'm an undergraduate studying math with a CS minor, ranked 2nd of 40 in my major. Most of what I build is computer vision: finding objects in images, segmenting them, and measuring how things move.</p>
+
+      <p>In 2024 I worked on estimating river surface velocity from ordinary video, combining RAFT optical flow with classical PIV. Since then I've been rebuilding well-known models from their papers in plain PyTorch, with no pretrained weights and no library shortcuts like <code>nn.Transformer</code>: a Transformer, YOLOv3, U-Net and ResNet-18.</p>
+
+      <div class="status">
+        <p><strong>Looking for a Master's or RA position</strong> in machine learning or computer vision, starting <span class="nowrap">Spring 2027</span>, <span class="nowrap">Fall 2027</span>, or <span class="nowrap">Spring 2028</span>.</p>
+        <p class="actions">
+          <a class="btn" href="mailto:{{ site.author.email }}">Email me</a>
+          <a class="btn ghost" href="{{ '/assets/pdf/CV.pdf' | relative_url }}">CV (PDF)</a>
+        </p>
+      </div>
+    </div>
+
+    <figure class="portrait">
+      <img src="{{ '/assets/img/portrait.jpg' | relative_url }}" fetchpriority="high" width="584" height="730" alt="Ahmadreza Farvardin standing on a grassy hillside under a cloudy sky">
+    </figure>
+  </div>
+  <p class="wrap flow-note"><span>Background: tracer particles carried by a curl-noise flow. Move your cursor through it.</span></p>
+</section>
+
+<section class="wrap block">
+  <h2 class="section-label">Where I'm headed</h2>
+  <p class="wide">So far my work has been in vision. Next I want to work on models that combine vision with language and action: <em>multimodal LLMs</em>, <em>embodied agents</em>, and the <em>generative models</em> that sit underneath both. I'm particularly interested in research groups working on these.</p>
+</section>
+
+<section class="wrap block">
+  <div class="block-head">
+    <h2 class="section-label">Selected work</h2>
+    <a class="more" href="{{ '/projects/' | relative_url }}">All projects →</a>
+  </div>
+  <ol class="worklist">
+    {% assign featured = site.projects | where: "featured", true | sort: "order" %}
+    {% for p in featured %}
+    <li>
+      <a href="{{ p.url | relative_url }}">
+        <span class="w-year">{{ p.year }}</span>
+        <span class="w-main">
+          <span class="w-title">{{ p.title }}</span>
+          <span class="w-sum">{{ p.short }}</span>
+        </span>
+        <span class="w-metric">{{ p.headline }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<section class="wrap block" id="teaching">
+  <h2 class="section-label">Teaching</h2>
+  <p class="wide">I've been a teaching assistant at the University of Tehran since Fall 2023. This semester I'm a TA for Machine Learning. In earlier courses I ran weekly problem-solving sessions, wrote assignment solutions, and held office hours.</p>
+  <table class="plain teach">
+    <tbody>
+      <tr><td>Machine Learning</td><td><a href="https://science.ut.ac.ir/en/~babaali">Prof. Bagher Babaali</a> &amp; <a href="https://science.ut.ac.ir/en/~hhsajedi">Prof. Hedieh Sajedi</a></td><td class="mono">Fall 2026</td></tr>
+      <tr><td>Nonlinear Optimization</td><td><a href="https://profile.ut.ac.ir/en/~ms.sarafraz">Prof. Mohammad Saeed Sarafraz</a></td><td class="mono">Fall 2024</td></tr>
+      <tr><td>Linear Algebra</td><td><a href="https://profile.ut.ac.ir/en/~yazdan">Prof. Mohammad Javad Yazdanpanah</a></td><td class="mono">Spring 2024</td></tr>
+      <tr><td>Mathematical Analysis</td><td><a href="https://profile.ut.ac.ir/en/~fatemah">Prof. Fatemah Ayatollah Zadeh Shirazi</a></td><td class="mono">Spring 2024</td></tr>
+      <tr><td>Calculus I &amp; II</td><td><a href="https://profile.ut.ac.ir/en/~sh.mokarami">Prof. Shaghayegh Mokarami</a></td><td class="mono">2023–24</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="wrap block">
+  <h2 class="section-label">Recognition</h2>
+  <ul class="plain-list">
+    <li><strong>1st place</strong>, Quera competition for the Machine Learning course final project (handwritten math recognition), 2024</li>
+    <li><strong>Ranked 2nd of 40</strong> in the Mathematics major, University of Tehran. Major GPA 18.05/20</li>
+  </ul>
+</section>

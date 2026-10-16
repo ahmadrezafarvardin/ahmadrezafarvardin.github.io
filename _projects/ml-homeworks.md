@@ -1,56 +1,20 @@
 ---
-layout: page
-title: ML Course Homeworks
-description: Assignments and implementations for the Machine Learning course at University of Tehran
-img: https://placehold.co/600x400/1e88e5/ffffff?text=ML+Assignments
-importance: 1
-category: fun
+title: Machine Learning coursework
+short: Five assignments, from Naive Bayes to GMMs, mostly implemented from scratch.
+summary: Assignments for the Machine Learning course at the University of Tehran, covering classical methods from probability through clustering. Most algorithms are written from scratch and then checked against library versions.
+kind: Coursework
+group: coursework
+year: 2024
 github: https://github.com/ahmadrezafarvardin/ML-HomeWorks-UT
+stack: NumPy · pandas · scikit-learn · TensorFlow/Keras
 ---
 
-## Overview
+| | Topic | What I built |
+|---|---|---|
+| HW1 | Probability & classification | Naive Bayes from scratch on Iris; confusion matrices, precision/recall/F1 |
+| HW2 | Linear models | Ridge and L2-regularised logistic regression; sequential forward feature selection; driver classification from transformed features |
+| HW3 | Ensembles | AdaBoost and bagging applied to phishing-email detection, benchmarked against XGBoost |
+| HW4 | Neural nets & dimensionality reduction | Activation-function comparisons; PCA vs. LDA on MNIST digits; kernel PCA for denoising |
+| HW5 | Clustering | GMM from scratch; K-Means image segmentation; silhouette and Davies–Bouldin scores; t-SNE |
 
-This repository contains my solutions and implementations for the **Machine Learning** course assignments at the **University of Tehran**. It covers a wide range of classical ML algorithms, implemented from scratch or using standard libraries, to demonstrate core concepts.
-
-## Assignments Breakdown
-
-The course was structured into 5 main assignments, progressing from basic probability to advanced clustering:
-
-### HW1: Probability & Classification
-*   **Naive Bayes Classifier:** Implementation from scratch.
-*   **Data Analysis:** Visualization and preprocessing on the Iris dataset.
-*   **Metrics:** Confusion matrices, precision, recall, and F1-score analysis.
-
-### HW2: Linear Models
-*   **Ridge Regression:** Regularized linear regression.
-*   **Logistic Regression:** Binary classification with L2 regularization.
-*   **Feature Selection:** Sequential Forward Selection (SFS) algorithm.
-
-### HW3: Ensemble Methods
-*   **Bagging & Boosting:** Implementation of AdaBoost and Bagging classifiers.
-*   **Phishing Detection:** Applying ensemble methods to detect email phishing.
-*   **Comparison:** Benchmarking custom implementations against **XGBoost**.
-
-### HW4: Neural Networks & Dimensionality Reduction
-*   **Neural Networks:** Analysis of activation functions (ReLU, Sigmoid, Tanh).
-*   **PCA & LDA:** Principal Component Analysis vs. Linear Discriminant Analysis.
-*   **Kernel PCA:** Non-linear dimensionality reduction for noise removal.
-
-### HW5: Clustering & Mixture Models
-*   **GMM:** Gaussian Mixture Models implementation from scratch.
-*   **K-Means:** Applied to **Image Segmentation**.
-*   **Evaluation:** Silhouette Coefficient and Davies-Bouldin Index.
-*   **Visualization:** Using **t-SNE** to visualize high-dimensional clusters.
-
-## Technologies Used
-*   **Python** (NumPy, Pandas)
-*   **Scikit-Learn**
-*   **TensorFlow / Keras**
-*   **Matplotlib / Seaborn**
-
-## Note
-The assignment descriptions and theoretical answers are primarily in **Persian**, while the code and technical comments are in **English**.
-
-## Code
-
-All notebooks and PDF reports are available on [GitHub →](https://github.com/ahmadrezafarvardin/ML-HomeWorks-UT)
+The written answers are in Persian; the code and comments are in English.

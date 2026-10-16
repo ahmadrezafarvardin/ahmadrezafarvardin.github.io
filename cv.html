@@ -1,0 +1,105 @@
+---
+layout: default
+title: CV
+permalink: /cv/
+description: Curriculum vitae of Ahmadreza Farvardin, Mathematics & Computer Science, University of Tehran.
+---
+<article class="wrap page cv">
+  <header class="page-head cv-head">
+    <h1>Curriculum Vitae</h1>
+    <a class="btn ghost" href="{{ '/assets/pdf/CV.pdf' | relative_url }}">Download PDF</a>
+  </header>
+
+  <section class="cv-sec">
+    <h2 class="section-label">Education</h2>
+    <div class="cv-row">
+      <div class="cv-when mono">Expected<br>June 2027</div>
+      <div>
+        <h3>B.Sc. Mathematics &amp; Computer Science, <a href="https://ut.ac.ir/en">University of Tehran</a></h3>
+        <p>Major GPA 18.05/20 (top 5%) · Minor GPA 17.23/20 · Ranked 2nd of 40 in Mathematics</p>
+        <p class="muted">Coursework: Machine Learning, Deep Generative Models, Nonlinear Optimization, Linear Algebra, Statistical Modeling, Mathematical Analysis</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cv-sec">
+    <h2 class="section-label">Research &amp; projects</h2>
+    <div class="cv-row">
+      <div class="cv-when mono">2024</div>
+      <div>
+        <h3><a href="{{ '/projects/river_velocity_estimation/' | relative_url }}">River velocity estimation with deep learning and classical PIV</a></h3>
+        <p>Hybrid pipeline: RAFT optical flow for unseeded video, OpenPIV cross-correlation for seeded video, with cross-validated calibration across camera setups. R² = 0.77, MAE 0.36 m/s, RMSE 0.58 m/s on 22 real river videos.</p>
+      </div>
+    </div>
+    <div class="cv-row">
+      <div class="cv-when mono">2024</div>
+      <div>
+        <h3><a href="{{ '/projects/math_recognition/' | relative_url }}">Persian handwritten mathematical expression recognition</a></h3>
+        <p>Machine Learning course project, <strong>1st place</strong> in the Quera competition. YOLOv8 / Faster R-CNN symbol detection (92.3% mAP), K-Means/DBSCAN clustering, CRNN + CTC recognition, semi-supervised pseudo-labelling.</p>
+      </div>
+    </div>
+    <div class="cv-row">
+      <div class="cv-when mono">2024 – 25</div>
+      <div>
+        <h3>Deep learning architectures from scratch</h3>
+        <ul>
+          <li><a href="{{ '/projects/transformer/' | relative_url }}">Transformer</a>, German→English on Multi30k: 37.37 BLEU</li>
+          <li><a href="{{ '/projects/unet/' | relative_url }}">U-Net with attention gates</a>, Oxford-IIIT Pets: 0.8375 IoU, 0.9116 Dice</li>
+          <li><a href="{{ '/projects/yolov3/' | relative_url }}">YOLOv3</a> on COCO without pretrained weights</li>
+          <li><a href="{{ '/projects/resnet18-cifar10/' | relative_url }}">ResNet-18</a> on CIFAR-10: 94.51% test accuracy</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cv-row">
+      <div class="cv-when mono">2024</div>
+      <div>
+        <h3>Machine learning &amp; optimisation algorithms</h3>
+        <p>Course projects: Naive Bayes, ridge/logistic regression, AdaBoost, PCA and GMM from scratch (<a href="{{ '/projects/ml-homeworks/' | relative_url }}">ML</a>); gradient descent, Newton's method and regularised least squares, applied to SVMs and polynomial regression (<a href="{{ '/projects/nlp_assignments/' | relative_url }}">optimisation</a>).</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cv-sec">
+    <h2 class="section-label">Teaching</h2>
+    <div class="cv-row">
+      <div class="cv-when mono">Fall 2023 –<br>present</div>
+      <div>
+        <h3>Teaching Assistant, University of Tehran</h3>
+        <p class="muted">School of Electrical &amp; Computer Engineering and School of Mathematics, Statistics &amp; CS</p>
+        <ul>
+          <li>Machine Learning, <a href="https://science.ut.ac.ir/en/~babaali">Prof. Bagher Babaali</a> &amp; <a href="https://science.ut.ac.ir/en/~hhsajedi">Prof. Hedieh Sajedi</a> <span class="mono muted">Fall 2026</span></li>
+          <li>Nonlinear Optimization, Prof. Mohammad Saeed Sarafraz <span class="mono muted">Fall 2024</span></li>
+          <li>Linear Algebra, Prof. Mohammad Javad Yazdanpanah <span class="mono muted">Spring 2024</span></li>
+          <li>Mathematical Analysis, Prof. Fatemah Ayatollah Zadeh Shirazi <span class="mono muted">Spring 2024</span></li>
+          <li>Calculus I &amp; II, Prof. Shaghayegh Mokarami <span class="mono muted">Fall 2023 – Spring 2024</span></li>
+        </ul>
+        <p>In the earlier courses: weekly problem-solving recitations, assignment solutions, and office hours for undergraduate engineering and mathematics students.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cv-sec">
+    <h2 class="section-label">Honours</h2>
+    <div class="cv-row">
+      <div class="cv-when mono">2024</div>
+      <div><p><strong>1st place</strong>, Quera competition, Machine Learning final project (mathematical expression recognition)</p></div>
+    </div>
+    <div class="cv-row">
+      <div class="cv-when mono">&nbsp;</div>
+      <div><p><strong>Ranked 2nd of 40</strong>, Mathematics major, University of Tehran</p></div>
+    </div>
+  </section>
+
+  <section class="cv-sec">
+    <h2 class="section-label">Skills</h2>
+    <dl class="skills">
+      <dt>Programming</dt><dd>Python (advanced), C/C++, MATLAB, Bash</dd>
+      <dt>ML / DL</dt><dd>PyTorch, scikit-learn, NumPy, pandas, OpenCV, Matplotlib</dd>
+      <dt>Models</dt><dd>Transformers, CNNs (ResNet, U-Net, YOLO, Faster R-CNN), attention, LLMs</dd>
+      <dt>Areas</dt><dd>Computer vision (segmentation, detection, optical flow), NLP (machine translation), generative models</dd>
+      <dt>Mathematics</dt><dd>Optimisation, linear algebra, statistical modelling, numerical methods</dd>
+      <dt>Tools</dt><dd>Git, Linux, JupyterLab, VS Code, LaTeX</dd>
+      <dt>Languages</dt><dd>Persian (native), English (professional working proficiency)</dd>
+    </dl>
+  </section>
+</article>
