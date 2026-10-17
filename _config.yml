@@ -2,12 +2,12 @@ title: Ahmadreza Farvardin
 tagline: Mathematics & Computer Science, University of Tehran
 # Shown in Google results and link previews; keep it under ~160 characters.
 description: >-
-  Ahmadreza Farvardin, Math & CS student at the University of Tehran working on computer vision.
-  Seeking Master's or RA positions from Spring 2027.
+  Math & CS student at the University of Tehran working on computer vision,
+  multimodal LLMs, and agents. Seeking Master's or RA positions from Spring 2027.
 # Google ignores meta keywords, but other engines and tools still read them.
 keywords: >-
   Ahmadreza Farvardin, Machine Learning, Deep Learning, Computer Vision, Multimodal LLMs, Embodied AI,
-  Generative Models, Optical Flow, RAFT, PIV, Object Detection, Segmentation, Transformer, YOLO, ResNet,
+  AI Agents, LLM Agents, Optical Flow, RAFT, PIV, Object Detection, Segmentation, Transformer, YOLO, ResNet,
   U-Net, Mathematics, Computer Science, University of Tehran
 url: https://ahmadrezafarvardin.github.io
 baseurl: ""
@@ -20,8 +20,8 @@ author:
   linkedin: ahmadreza-farvardin
   x: ahmadrezafv
   image: /assets/img/og.jpg
-  job_title: Undergraduate student, Mathematics & Computer Science
-  knows_about: [Computer Vision, Machine Learning, Deep Learning, Optical Flow, Object Detection, Image Segmentation, Multimodal Models, Optimization]
+  job_title: Student researcher, Mathematics & Computer Science
+  knows_about: [Computer Vision, Multimodal Large Language Models, Embodied AI, AI Agents, Machine Learning, Deep Learning, Optical Flow, Object Detection, Image Segmentation]
 
 google_analytics: G-TRPMF94PFJ
 google_site_verification: KY-NsSUDuXn6c5yRoD4MrP6Mq32srq5jpgHku7RRojU
