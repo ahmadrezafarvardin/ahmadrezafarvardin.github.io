@@ -1,0 +1,31 @@
+{%- comment -%}
+  Links to a project's report, slides, code and notebook.
+  include.p = the project; include.style = "buttons" (project page) or "inline" (cards).
+{%- endcomment -%}
+{%- assign p = include.p -%}
+<p class="plinks {{ include.style | default: 'inline' }}">
+  {%- if p.report %}
+  <a class="plink primary" href="{{ p.report }}">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+    <span>{% if include.style == "buttons" %}Read the report{% else %}Report{% endif %}</span>{% if include.style == "buttons" and p.report_note %}<small>PDF · {{ p.report_note }}</small>{% endif %}
+  </a>
+  {%- endif %}
+  {%- if p.slides %}
+  <a class="plink" href="{{ p.slides }}">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/></svg>
+    <span>Slides</span>
+  </a>
+  {%- endif %}
+  {%- if p.github %}
+  <a class="plink{% unless p.report %} primary{% endunless %}" href="{{ p.github }}">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  {%- endif %}
+  {%- if p.notebook %}
+  <a class="plink" href="{{ p.notebook }}">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>{{ p.notebook_label | default: "Notebook" }}</span>
+  </a>
+  {%- endif %}
+</p>

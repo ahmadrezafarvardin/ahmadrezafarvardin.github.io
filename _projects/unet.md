@@ -9,7 +9,6 @@ year: 2024–25
 featured: true
 order: 5
 math: true
-image: /assets/img/projects/unet/predictions.png
 stats:
   - { label: IoU, value: "0.8375" }
   - { label: Dice, value: "0.9116" }
@@ -17,10 +16,14 @@ stats:
   - { label: Training, value: "~39 min, 1× T4" }
 github: https://github.com/ahmadrezafarvardin/unet-segmentation
 stack: PyTorch · Oxford-IIIT Pets
+notebook: https://colab.research.google.com/github/ahmadrezafarvardin/unet-segmentation/blob/main/notebooks/demo.ipynb
+notebook_label: Open in Colab
+thumb: /assets/img/thumbs/unet.jpg
+thumb_alt: Pet photos next to their ground-truth masks and the predicted masks
 ---
 
 <figure>
-  <img loading="lazy" decoding="async" src="/assets/img/projects/unet/predictions.png" alt="Rows of pet photos with their ground-truth masks and the model's predicted masks">
+  <img loading="lazy" decoding="async" src="/assets/img/projects/unet/predictions.jpg" alt="Rows of pet photos with their ground-truth masks and the model's predicted masks">
   <figcaption>Input, ground-truth mask, prediction.</figcaption>
 </figure>
 

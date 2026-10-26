@@ -15,6 +15,9 @@ stats:
   - { label: Field videos, value: "22" }
 github: https://github.com/ahmadrezafarvardin/river_velocity_estimation
 stack: PyTorch · RAFT · OpenPIV · OpenCV
+notebook: https://github.com/ahmadrezafarvardin/river_velocity_estimation/blob/master/notebooks/02_colab_pipeline.ipynb
+notebook_label: Colab notebook
+panel: { value: "R² 0.77", label: "on 22 real-world river videos" }
 ---
 
 Measuring river discharge usually means putting instruments in the water. The idea here is to get surface velocity from video instead, which is cheap and safe but turns a hydrology problem into a motion-estimation problem with messy real-world footage.

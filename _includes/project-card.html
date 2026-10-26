@@ -1,0 +1,28 @@
+{%- comment -%}
+  A project card. Shows the project's figure when it has one, otherwise its
+  headline number, so every card has a visual anchor without placeholder art.
+  include.p = the project; include.lead = true for the wide featured card.
+{%- endcomment -%}
+{%- assign p = include.p -%}
+<article class="card{% if include.lead %} card-lead{% endif %}">
+  <a class="card-media{% unless p.thumb %} card-stat{% endunless %}" href="{{ p.url | relative_url }}" tabindex="-1" aria-hidden="true">
+    {%- if p.thumb %}
+    <img src="{{ p.thumb | relative_url }}" alt="" loading="lazy" decoding="async">
+    {%- else %}
+    {%- assign s = p.panel | default: p.stats.first %}
+    <span class="stat-value">{{ s.value }}</span>
+    <span class="stat-label">{{ s.label }}</span>
+    {%- endif %}
+  </a>
+  <div class="card-body">
+    <p class="kicker">{{ p.kind }} · {{ p.year }}{% if p.context %} · {{ p.context }}{% endif %}</p>
+    <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+    <p class="card-sum">{{ p.short }}</p>
+    {%- if include.lead and p.stats %}
+    <dl class="stats compact">
+      {% for s in p.stats %}<div><dt>{{ s.label }}</dt><dd>{{ s.value }}</dd></div>{% endfor %}
+    </dl>
+    {%- endif %}
+    {% include project-links.html p=p %}
+  </div>
+</article>

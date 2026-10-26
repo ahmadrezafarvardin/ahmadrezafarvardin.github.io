@@ -15,6 +15,9 @@ stats:
   - { label: Training, value: "~5 min, 1× T4" }
 github: https://github.com/ahmadrezafarvardin/transformer-translation
 stack: PyTorch · spaCy tokenisation
+notebook: https://colab.research.google.com/github/ahmadrezafarvardin/transformer-translation/blob/main/notebooks/demo.ipynb
+notebook_label: Open in Colab
+panel: { value: "37.37", label: "test BLEU, German → English" }
 ---
 
 An implementation of [Vaswani et al., 2017](https://arxiv.org/abs/1706.03762), trained on [Multi30k](https://github.com/multi30k/dataset). Multi-head attention, positional encoding, masking and the learning-rate schedule are all written by hand, without `nn.Transformer`.

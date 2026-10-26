@@ -67,6 +67,21 @@
       {%- if page.year %}
       "temporalCoverage": {{ page.year | replace: "–", "/20" | jsonify }},
       {%- endif %}
+      {%- if page.thumb %}
+      "image": {{ page.thumb | absolute_url | jsonify }},
+      {%- endif %}
+      {%- if page.collaborators %}
+      "contributor": { "@type": "Person", "name": {{ page.collaborators | jsonify }} },
+      {%- endif %}
+      {%- if page.report %}
+      "subjectOf": {
+        "@type": "ScholarlyArticle",
+        "name": {{ page.title | append: " (report)" | jsonify }},
+        "url": {{ page.report | jsonify }},
+        "encodingFormat": "application/pdf",
+        "author": { "@id": {{ person_id | jsonify }} }
+      },
+      {%- endif %}
       "author": { "@id": {{ person_id | jsonify }} },
       "isPartOf": { "@id": {{ site_id | jsonify }} }
     },

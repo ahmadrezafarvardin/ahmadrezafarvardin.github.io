@@ -16,9 +16,14 @@ stats:
   - { label: Mean edit distance, value: "0.83" }
 github: https://github.com/ahmadrezafarvardin/ML-finalProject-UT
 stack: PyTorch · YOLOv8 · Faster R-CNN · scikit-learn
+report: https://github.com/ahmadrezafarvardin/ML-finalProject-UT/blob/master/report.pdf
+report_note: 89 pages, 22 MB
+collaborators: Maryam Vali
+thumb: /assets/img/thumbs/math_recognition.jpg
+thumb_alt: Grid of handwritten math expressions with a detection box drawn around each character
 ---
 
-This was the final project for the Machine Learning course at the University of Tehran, run as a competition on Quera. The input is an image of a handwritten expression such as `(5-2)/3`, and the output is that expression as a string. The test images came without labels.
+This was the final project for the Machine Learning course at the University of Tehran, done with Maryam Vali and run as a competition on Quera. The input is an image of a handwritten expression such as `(5-2)/3`, and the output is that expression as a string. The test images came without labels.
 
 <ol class="pipeline">
   <li><b>Clean</b> Validate annotations, fix out-of-bounds boxes, remove outliers and corrupted images</li>
@@ -26,6 +31,11 @@ This was the final project for the Machine Learning course at the University of 
   <li><b>Analyse</b> Cluster the detected characters (K-Means, DBSCAN, hierarchical) on HOG, CNN and statistical features to study the character set</li>
   <li><b>Recognise</b> Read the whole expression with a CRNN trained with CTC loss, with test-time augmentation at inference</li>
 </ol>
+
+<figure>
+  <img loading="lazy" decoding="async" src="/assets/img/projects/math/detections.jpg" width="1400" height="958" alt="Validation images of handwritten expressions with a detection box around each character">
+  <figcaption>Faster R-CNN detections on validation images after NMS tuning (IoU 0.3). From the project report.</figcaption>
+</figure>
 
 ## Detection
 

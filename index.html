@@ -11,7 +11,7 @@ body_class: home
 
       <p>I'm a Mathematics and Computer Science student at the University of Tehran, working on <strong>computer vision</strong>, <strong>multimodal LLMs</strong>, and <strong>agents</strong>.</p>
 
-      <p>My work so far is in visual perception. I built a pipeline that measures river surface velocity from video by combining RAFT optical flow with classical PIV, and a handwritten math-recognition system that took 1st place in the Machine Learning course competition. I also implement models from their original papers in PyTorch, including the Transformer, YOLOv3, U-Net and ResNet-18.</p>
+      <p>Most recently I built <a href="{{ '/projects/alpha-evolve-vlm/' | relative_url }}">AlphaEvolve-VLM</a>, an LLM-driven program-search system that rewrites a 2B vision-language model's inference code for chart question answering. A strict holdout audit showed that its gain came from gaming the benchmark. Before that I worked on visual perception: measuring river surface velocity from video with RAFT optical flow and classical PIV, and a handwritten math-recognition system that took 1st place in the Machine Learning course competition.</p>
 
       <div class="status">
         <p><strong>Seeking Master's or research assistant positions</strong> in machine learning and computer vision, starting <span class="nowrap">Spring 2027</span>, <span class="nowrap">Fall 2027</span>, or <span class="nowrap">Spring 2028</span>.</p>
@@ -56,21 +56,10 @@ body_class: home
     <h2 class="section-label">Selected research &amp; projects</h2>
     <a class="more" href="{{ '/projects/' | relative_url }}">All projects →</a>
   </div>
-  <ol class="worklist">
-    {% assign featured = site.projects | where: "featured", true | sort: "order" %}
-    {% for p in featured %}
-    <li>
-      <a href="{{ p.url | relative_url }}">
-        <span class="w-year">{{ p.year }}</span>
-        <span class="w-main">
-          <span class="w-title">{{ p.title }}</span>
-          <span class="w-sum">{{ p.short }}</span>
-        </span>
-        <span class="w-metric">{{ p.headline }}</span>
-      </a>
-    </li>
-    {% endfor %}
-  </ol>
+  {% assign featured = site.projects | where: "featured", true | sort: "order" %}
+  <div class="cards">
+    {% for p in featured %}{% include project-card.html p=p lead=p.lead %}{% endfor %}
+  </div>
 </section>
 
 <section class="wrap block" id="honors">

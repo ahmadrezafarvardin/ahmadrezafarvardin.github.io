@@ -15,6 +15,10 @@ stats:
   - { label: Training, value: "50 epochs, ~15 min" }
 github: https://github.com/ahmadrezafarvardin/resnet18-cifar10
 stack: PyTorch · CIFAR-10
+notebook: https://colab.research.google.com/github/ahmadrezafarvardin/resnet18-cifar10/blob/main/notebooks/demo.ipynb
+notebook_label: Open in Colab
+thumb: /assets/img/thumbs/resnet18-cifar10.jpg
+thumb_alt: Training and validation loss and accuracy curves over 50 epochs
 ---
 
 [ResNet-18](https://arxiv.org/abs/1512.03385) was designed for 224×224 ImageNet images. Its stem, a 7×7 stride-2 convolution followed by max pooling, shrinks the input by 4× before the first residual block. On a 32×32 CIFAR image that leaves 8×8 to work with, which throws away most of the spatial detail.

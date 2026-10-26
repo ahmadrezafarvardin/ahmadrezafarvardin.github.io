@@ -15,6 +15,9 @@ stats:
   - { label: Training, value: "~3 h, 1× T4" }
 github: https://github.com/ahmadrezafarvardin/YOLOv3-Detection
 stack: PyTorch · COCO
+notebook: https://colab.research.google.com/github/ahmadrezafarvardin/YOLOv3-Detection/blob/main/notebooks/demo.ipynb
+notebook_label: Open in Colab
+panel: { value: "61.9M", label: "parameters, trained from random init" }
 ---
 
 An implementation of [YOLOv3](https://arxiv.org/abs/1804.02767) with no pretrained backbone. The original was trained on 118k images for roughly 300 epochs, starting from an ImageNet-pretrained backbone, on 8 GPUs for about a week. This version gets 4,000 images from COCO val2017, 30 epochs, and a Colab T4 for three hours. The point was never to match the paper's numbers, but to get every part of the detector working and learning.
