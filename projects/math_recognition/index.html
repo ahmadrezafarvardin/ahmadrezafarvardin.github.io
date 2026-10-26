@@ -48,7 +48,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/main.css?v=1792216870">
+<link rel="stylesheet" href="/assets/css/main.css?v=1793037365">
 
 
 
@@ -110,6 +110,15 @@
       "url": "https://ahmadrezafarvardin.github.io/projects/math_recognition/",
       "codeRepository": "https://github.com/ahmadrezafarvardin/ML-finalProject-UT",
       "temporalCoverage": "2024",
+      "image": "https://ahmadrezafarvardin.github.io/assets/img/thumbs/math_recognition.jpg",
+      "contributor": { "@type": "Person", "name": "Maryam Vali" },
+      "subjectOf": {
+        "@type": "ScholarlyArticle",
+        "name": "Handwritten math recognition (report)",
+        "url": "https://github.com/ahmadrezafarvardin/ML-finalProject-UT/blob/master/report.pdf",
+        "encodingFormat": "application/pdf",
+        "author": { "@id": "https://ahmadrezafarvardin.github.io/#person" }
+      },
       "author": { "@id": "https://ahmadrezafarvardin.github.io/#person" },
       "isPartOf": { "@id": "https://ahmadrezafarvardin.github.io/#website" }
     },
@@ -149,18 +158,27 @@
     <p class="kicker">Course project · 2024 · 1st place, Quera competition</p>
     <h1>Handwritten math recognition</h1>
     <p class="lede">Reading Persian handwritten mathematical expressions, from locating each symbol to producing the expression as a string. Final project for the Machine Learning course; took 1st place in the course's Quera competition.</p>
+    <p class="byline">With Maryam Vali</p>
+    <p class="plinks buttons">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/ML-finalProject-UT/blob/master/report.pdf">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+    <span>Read the report</span><small>PDF · 89 pages, 22 MB</small>
+  </a>
+  <a class="plink" href="https://github.com/ahmadrezafarvardin/ML-finalProject-UT">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+</p>
+
     
     <dl class="stats">
       <div><dt>Detection mAP (YOLOv8)</dt><dd>92.3%</dd></div><div><dt>Detection mAP (Faster R-CNN)</dt><dd>89.7%</dd></div><div><dt>Expression accuracy</dt><dd>54.35%</dd></div><div><dt>Mean edit distance</dt><dd>0.83</dd></div>
     </dl>
     
-    <p class="links">
-      <a href="https://github.com/ahmadrezafarvardin/ML-finalProject-UT">Code on GitHub ↗</a>
-      <span class="stack">PyTorch · YOLOv8 · Faster R-CNN · scikit-learn</span>
-    </p>
+    <p class="stack">PyTorch · YOLOv8 · Faster R-CNN · scikit-learn</p>
   </header>
   <div class="prose">
-<p>This was the final project for the Machine Learning course at the University of Tehran, run as a competition on Quera. The input is an image of a handwritten expression such as <code>(5-2)/3</code>, and the output is that expression as a string. The test images came without labels.</p>
+<p>This was the final project for the Machine Learning course at the University of Tehran, done with Maryam Vali and run as a competition on Quera. The input is an image of a handwritten expression such as <code>(5-2)/3</code>, and the output is that expression as a string. The test images came without labels.</p>
 
 <ol class="pipeline">
   <li><b>Clean</b> Validate annotations, fix out-of-bounds boxes, remove outliers and corrupted images</li>
@@ -168,6 +186,11 @@
   <li><b>Analyse</b> Cluster the detected characters (K-Means, DBSCAN, hierarchical) on HOG, CNN and statistical features to study the character set</li>
   <li><b>Recognise</b> Read the whole expression with a CRNN trained with CTC loss, with test-time augmentation at inference</li>
 </ol>
+
+<figure>
+  <img loading="lazy" decoding="async" src="/assets/img/projects/math/detections.jpg" width="1400" height="958" alt="Validation images of handwritten expressions with a detection box around each character" />
+  <figcaption>Faster R-CNN detections on validation images after NMS tuning (IoU 0.3). From the project report.</figcaption>
+</figure>
 
 <h2 id="detection">Detection</h2>
 
@@ -190,6 +213,20 @@
 <p>Beam-search decoding instead of greedy CTC decoding, an attention layer in the CRNN, grammar constraints so the model can’t output invalid expressions, and synthetic training data.</p>
 
   </div>
+  <footer class="project-foot">
+    <p>Want the details?</p>
+    <p class="plinks buttons">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/ML-finalProject-UT/blob/master/report.pdf">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+    <span>Read the report</span><small>PDF · 89 pages, 22 MB</small>
+  </a>
+  <a class="plink" href="https://github.com/ahmadrezafarvardin/ML-finalProject-UT">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+</p>
+
+  </footer>
 </article>
 
 </main>

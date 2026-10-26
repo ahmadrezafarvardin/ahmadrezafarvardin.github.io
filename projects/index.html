@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"><title>Projects · Ahmadreza Farvardin</title>
-<meta name="description" content="Research, from-scratch model implementations, and coursework by Ahmadreza Farvardin.">
+<meta name="description" content="Research projects, from-scratch model implementations, and coursework by Ahmadreza Farvardin, with reports and code.">
 <meta name="author" content="Ahmadreza Farvardin">
 <meta name="keywords" content="Ahmadreza Farvardin, Machine Learning, Deep Learning, Computer Vision, Multimodal LLMs, Embodied AI, AI Agents, LLM Agents, Optical Flow, RAFT, PIV, Object Detection, Segmentation, Transformer, YOLO, ResNet, U-Net, Mathematics, Computer Science, University of Tehran">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -15,7 +15,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Projects · Ahmadreza Farvardin">
-<meta property="og:description" content="Research, from-scratch model implementations, and coursework by Ahmadreza Farvardin.">
+<meta property="og:description" content="Research projects, from-scratch model implementations, and coursework by Ahmadreza Farvardin, with reports and code.">
 <meta property="og:url" content="https://ahmadrezafarvardin.github.io/projects/">
 <meta property="og:image" content="https://ahmadrezafarvardin.github.io/assets/img/og.jpg">
 <meta property="og:image:width" content="600">
@@ -25,7 +25,7 @@
 <meta name="twitter:site" content="@ahmadrezafv">
 <meta name="twitter:creator" content="@ahmadrezafv">
 <meta name="twitter:title" content="Projects · Ahmadreza Farvardin">
-<meta name="twitter:description" content="Research, from-scratch model implementations, and coursework by Ahmadreza Farvardin.">
+<meta name="twitter:description" content="Research projects, from-scratch model implementations, and coursework by Ahmadreza Farvardin, with reports and code.">
 <meta name="twitter:image" content="https://ahmadrezafarvardin.github.io/assets/img/og.jpg">
 
 <!-- Icons -->
@@ -48,7 +48,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/main.css?v=1792216870">
+<link rel="stylesheet" href="/assets/css/main.css?v=1793037365">
 
 
 
@@ -142,148 +142,253 @@
 <div class="wrap page">
   <header class="page-head">
     <h1>Projects</h1>
-    <p class="lede">Research first, then models I rebuilt from their papers, then coursework. Code for everything is on <a href="https://github.com/ahmadrezafarvardin">GitHub</a>.</p>
+    <p class="lede">Research first, then models I rebuilt from their papers, then coursework. Each project links to its report, where there is one, and to its code on <a href="https://github.com/ahmadrezafarvardin">GitHub</a>.</p>
   </header>
 
   
+  <section class="block" id="research">
+    <h2 class="section-label">Research</h2>
+    <div class="cards">
+      <article class="card card-lead">
+  <a class="card-media" href="/projects/alpha-evolve-vlm/" tabindex="-1" aria-hidden="true">
+    <img src="/assets/img/thumbs/alpha-evolve-vlm.jpg" alt="" loading="lazy" decoding="async">
+  </a>
+  <div class="card-body">
+    <p class="kicker">Research project · 2026 · Princeton NLP Lab technical assessment</p>
+    <h3><a href="/projects/alpha-evolve-vlm/">AlphaEvolve-VLM: evolving chart-QA inference</a></h3>
+    <p class="card-sum">An LLM rewrites the inference code of a 2B vision-language model. Audited on an untouched holdout, the search turned out to be gaming the benchmark.</p>
+    <dl class="stats compact">
+      <div><dt>Best holdout accuracy</dt><dd>67.0%</dd></div><div><dt>Manual tuning (Instruct)</dt><dd>25.9 → 56.0%</dd></div><div><dt>Evolution over manual</dt><dd>+6.0 pts, p = 0.0003</dd></div><div><dt>LLM cost of the run</dt><dd>$0.23</dd></div>
+    </dl>
+    <p class="plinks inline">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/alpha-evolve-vlm/blob/main/report/report.pdf">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+    <span>Report</span>
+  </a>
+  <a class="plink" href="https://github.com/ahmadrezafarvardin/alpha-evolve-vlm/blob/main/presentation/slides.pdf">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/></svg>
+    <span>Slides</span>
+  </a>
+  <a class="plink" href="https://github.com/ahmadrezafarvardin/alpha-evolve-vlm">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  <a class="plink" href="https://github.com/ahmadrezafarvardin/alpha-evolve-vlm/blob/main/RESULTS.md">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>Lab notebook</span>
+  </a>
+</p>
+
+  </div>
+</article>
+<article class="card">
+  <a class="card-media card-stat" href="/projects/river_velocity_estimation/" tabindex="-1" aria-hidden="true">
+    <span class="stat-value">R² 0.77</span>
+    <span class="stat-label">on 22 real-world river videos</span>
+  </a>
+  <div class="card-body">
+    <p class="kicker">Research project · 2024</p>
+    <h3><a href="/projects/river_velocity_estimation/">River surface velocity from video</a></h3>
+    <p class="card-sum">RAFT optical flow for unseeded footage, OpenPIV for seeded footage, calibrated per camera setup.</p>
+    <p class="plinks inline">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/river_velocity_estimation">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  <a class="plink" href="https://github.com/ahmadrezafarvardin/river_velocity_estimation/blob/master/notebooks/02_colab_pipeline.ipynb">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>Colab notebook</span>
+  </a>
+</p>
+
+  </div>
+</article>
+<article class="card">
+  <a class="card-media" href="/projects/math_recognition/" tabindex="-1" aria-hidden="true">
+    <img src="/assets/img/thumbs/math_recognition.jpg" alt="" loading="lazy" decoding="async">
+  </a>
+  <div class="card-body">
+    <p class="kicker">Course project · 2024 · 1st place, Quera competition</p>
+    <h3><a href="/projects/math_recognition/">Handwritten math recognition</a></h3>
+    <p class="card-sum">Detect the symbols, then read the whole expression end to end with a CRNN trained with CTC loss.</p>
+    <p class="plinks inline">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/ML-finalProject-UT/blob/master/report.pdf">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+    <span>Report</span>
+  </a>
+  <a class="plink" href="https://github.com/ahmadrezafarvardin/ML-finalProject-UT">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+</p>
+
+  </div>
+</article>
+
+    </div>
+  </section>
+
   
-    
-    
-    <section class="block">
-      <h2 class="section-label">Research</h2>
-      <ol class="worklist">
-        
-        <li>
-          <a href="/projects/river_velocity_estimation/">
-            <span class="w-year">2024</span>
-            <span class="w-main">
-              <span class="w-title">River surface velocity from video</span>
-              <span class="w-sum">RAFT optical flow for unseeded footage, OpenPIV for seeded footage, calibrated per camera setup.</span>
-            </span>
-            <span class="w-metric">R² 0.77 · 22 videos</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/projects/math_recognition/">
-            <span class="w-year">2024</span>
-            <span class="w-main">
-              <span class="w-title">Handwritten math recognition</span>
-              <span class="w-sum">Detect the symbols, then read the whole expression end to end with a CRNN trained with CTC loss.</span>
-            </span>
-            <span class="w-metric">1st place · 92.3% mAP</span>
-          </a>
-        </li>
-        
-      </ol>
-    </section>
+  <section class="block" id="builds">
+    <h2 class="section-label">Built from the paper</h2>
+    <div class="cards">
+      <article class="card">
+  <a class="card-media card-stat" href="/projects/transformer/" tabindex="-1" aria-hidden="true">
+    <span class="stat-value">37.37</span>
+    <span class="stat-label">test BLEU, German → English</span>
+  </a>
+  <div class="card-body">
+    <p class="kicker">Implementation · 2024–25</p>
+    <h3><a href="/projects/transformer/">Transformer, from scratch</a></h3>
+    <p class="card-sum">The original Transformer rebuilt from primitives for German→English translation, without nn.Transformer.</p>
+    <p class="plinks inline">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/transformer-translation">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  <a class="plink" href="https://colab.research.google.com/github/ahmadrezafarvardin/transformer-translation/blob/main/notebooks/demo.ipynb">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>Open in Colab</span>
+  </a>
+</p>
+
+  </div>
+</article>
+<article class="card">
+  <a class="card-media card-stat" href="/projects/yolov3/" tabindex="-1" aria-hidden="true">
+    <span class="stat-value">61.9M</span>
+    <span class="stat-label">parameters, trained from random init</span>
+  </a>
+  <div class="card-body">
+    <p class="kicker">Implementation · 2024–25</p>
+    <h3><a href="/projects/yolov3/">YOLOv3, from scratch</a></h3>
+    <p class="card-sum">Darknet-53 and a three-scale detection head trained from random init on 4k COCO images and one GPU.</p>
+    <p class="plinks inline">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/YOLOv3-Detection">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  <a class="plink" href="https://colab.research.google.com/github/ahmadrezafarvardin/YOLOv3-Detection/blob/main/notebooks/demo.ipynb">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>Open in Colab</span>
+  </a>
+</p>
+
+  </div>
+</article>
+<article class="card">
+  <a class="card-media" href="/projects/unet/" tabindex="-1" aria-hidden="true">
+    <img src="/assets/img/thumbs/unet.jpg" alt="" loading="lazy" decoding="async">
+  </a>
+  <div class="card-body">
+    <p class="kicker">Implementation · 2024–25</p>
+    <h3><a href="/projects/unet/">U-Net with attention gates</a></h3>
+    <p class="card-sum">Pet-vs-background segmentation on Oxford-IIIT Pets with a modernised U-Net and a BCE + Dice loss.</p>
+    <p class="plinks inline">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/unet-segmentation">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  <a class="plink" href="https://colab.research.google.com/github/ahmadrezafarvardin/unet-segmentation/blob/main/notebooks/demo.ipynb">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>Open in Colab</span>
+  </a>
+</p>
+
+  </div>
+</article>
+<article class="card">
+  <a class="card-media" href="/projects/resnet18-cifar10/" tabindex="-1" aria-hidden="true">
+    <img src="/assets/img/thumbs/resnet18-cifar10.jpg" alt="" loading="lazy" decoding="async">
+  </a>
+  <div class="card-body">
+    <p class="kicker">Implementation · 2024–25</p>
+    <h3><a href="/projects/resnet18-cifar10/">ResNet-18 on CIFAR-10</a></h3>
+    <p class="card-sum">ResNet-18 adapted for 32×32 inputs with a 3×3 stem and no max pooling.</p>
+    <p class="plinks inline">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/resnet18-cifar10">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  <a class="plink" href="https://colab.research.google.com/github/ahmadrezafarvardin/resnet18-cifar10/blob/main/notebooks/demo.ipynb">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>Open in Colab</span>
+  </a>
+</p>
+
+  </div>
+</article>
+
+    </div>
+  </section>
+
   
-    
-    
-    <section class="block">
-      <h2 class="section-label">Built from the paper</h2>
-      <ol class="worklist">
-        
-        <li>
-          <a href="/projects/transformer/">
-            <span class="w-year">2024–25</span>
-            <span class="w-main">
-              <span class="w-title">Transformer, from scratch</span>
-              <span class="w-sum">The original Transformer rebuilt from primitives for German→English translation, without nn.Transformer.</span>
-            </span>
-            <span class="w-metric">37.37 BLEU</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/projects/yolov3/">
-            <span class="w-year">2024–25</span>
-            <span class="w-main">
-              <span class="w-title">YOLOv3, from scratch</span>
-              <span class="w-sum">Darknet-53 and a three-scale detection head trained from random init on 4k COCO images and one GPU.</span>
-            </span>
-            <span class="w-metric">no pretrained weights</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/projects/unet/">
-            <span class="w-year">2024–25</span>
-            <span class="w-main">
-              <span class="w-title">U-Net with attention gates</span>
-              <span class="w-sum">Pet-vs-background segmentation on Oxford-IIIT Pets with a modernised U-Net and a BCE + Dice loss.</span>
-            </span>
-            <span class="w-metric">0.8375 IoU</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/projects/resnet18-cifar10/">
-            <span class="w-year">2024–25</span>
-            <span class="w-main">
-              <span class="w-title">ResNet-18 on CIFAR-10</span>
-              <span class="w-sum">ResNet-18 adapted for 32×32 inputs with a 3×3 stem and no max pooling.</span>
-            </span>
-            <span class="w-metric">94.51% accuracy</span>
-          </a>
-        </li>
-        
-      </ol>
-    </section>
-  
-    
-    
-    <section class="block">
-      <h2 class="section-label">Coursework</h2>
-      <ol class="worklist">
-        
-        <li>
-          <a href="/projects/advanced_programming/">
-            <span class="w-year">2023</span>
-            <span class="w-main">
-              <span class="w-title">Advanced Programming coursework</span>
-              <span class="w-sum">Object-oriented C++ projects, including a food-ordering web app and a graphical game.</span>
-            </span>
-            <span class="w-metric"></span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/projects/data_structures/">
-            <span class="w-year">&nbsp;</span>
-            <span class="w-main">
-              <span class="w-title">Data Structures coursework</span>
-              <span class="w-sum">A linked-list music player and five graph and range-query problems in C++17.</span>
-            </span>
-            <span class="w-metric"></span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/projects/ml-homeworks/">
-            <span class="w-year">2024</span>
-            <span class="w-main">
-              <span class="w-title">Machine Learning coursework</span>
-              <span class="w-sum">Five assignments, from Naive Bayes to GMMs, mostly implemented from scratch.</span>
-            </span>
-            <span class="w-metric"></span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/projects/nlp_assignments/">
-            <span class="w-year">2024</span>
-            <span class="w-main">
-              <span class="w-title">Nonlinear Programming coursework</span>
-              <span class="w-sum">Least squares, gradient descent, Newton's method, Gamma regression and SVMs, written by hand.</span>
-            </span>
-            <span class="w-metric"></span>
-          </a>
-        </li>
-        
-      </ol>
-    </section>
-  
+  <section class="block" id="coursework">
+    <h2 class="section-label">Coursework</h2>
+    <ol class="worklist">
+      
+      <li class="work-row">
+        <span class="w-year">2023</span>
+        <span class="w-main">
+          <a class="w-title" href="/projects/advanced_programming/">Advanced Programming coursework</a>
+          <span class="w-sum">Object-oriented C++ projects, including a food-ordering web app and a graphical game.</span>
+        </span>
+        <p class="plinks inline">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/AdvancedProgramming-projects-UT">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+</p>
+
+      </li>
+      
+      <li class="work-row">
+        <span class="w-year">&nbsp;</span>
+        <span class="w-main">
+          <a class="w-title" href="/projects/data_structures/">Data Structures coursework</a>
+          <span class="w-sum">A linked-list music player and five graph and range-query problems in C++17.</span>
+        </span>
+        <p class="plinks inline">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/DataStructure-UT">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+</p>
+
+      </li>
+      
+      <li class="work-row">
+        <span class="w-year">2024</span>
+        <span class="w-main">
+          <a class="w-title" href="/projects/ml-homeworks/">Machine Learning coursework</a>
+          <span class="w-sum">Five assignments, from Naive Bayes to GMMs, mostly implemented from scratch.</span>
+        </span>
+        <p class="plinks inline">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/ML-HomeWorks-UT">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+</p>
+
+      </li>
+      
+      <li class="work-row">
+        <span class="w-year">2024</span>
+        <span class="w-main">
+          <a class="w-title" href="/projects/nlp_assignments/">Nonlinear Programming coursework</a>
+          <span class="w-sum">Least squares, gradient descent, Newton's method, Gamma regression and SVMs, written by hand.</span>
+        </span>
+        <p class="plinks inline">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/NonlinearProgramming-CodingAssignments-UT">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+</p>
+
+      </li>
+      
+    </ol>
+  </section>
 </div>
 
 </main>

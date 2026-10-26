@@ -48,7 +48,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/main.css?v=1792216870">
+<link rel="stylesheet" href="/assets/css/main.css?v=1793037365">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
@@ -123,6 +123,7 @@
       "url": "https://ahmadrezafarvardin.github.io/projects/unet/",
       "codeRepository": "https://github.com/ahmadrezafarvardin/unet-segmentation",
       "temporalCoverage": "2024/2025",
+      "image": "https://ahmadrezafarvardin.github.io/assets/img/thumbs/unet.jpg",
       "author": { "@id": "https://ahmadrezafarvardin.github.io/#person" },
       "isPartOf": { "@id": "https://ahmadrezafarvardin.github.io/#website" }
     },
@@ -163,18 +164,27 @@
     <h1>U-Net with attention gates</h1>
     <p class="lede">A from-scratch U-Net with attention gates on the skip connections, trained for pet-vs-background segmentation on Oxford-IIIT Pets.</p>
     
+    <p class="plinks buttons">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/unet-segmentation">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  <a class="plink" href="https://colab.research.google.com/github/ahmadrezafarvardin/unet-segmentation/blob/main/notebooks/demo.ipynb">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>Open in Colab</span>
+  </a>
+</p>
+
+    
     <dl class="stats">
       <div><dt>IoU</dt><dd>0.8375</dd></div><div><dt>Dice</dt><dd>0.9116</dd></div><div><dt>Pixel accuracy</dt><dd>94.6%</dd></div><div><dt>Training</dt><dd>~39 min, 1× T4</dd></div>
     </dl>
     
-    <p class="links">
-      <a href="https://github.com/ahmadrezafarvardin/unet-segmentation">Code on GitHub ↗</a>
-      <span class="stack">PyTorch · Oxford-IIIT Pets</span>
-    </p>
+    <p class="stack">PyTorch · Oxford-IIIT Pets</p>
   </header>
   <div class="prose">
 <figure>
-  <img loading="lazy" decoding="async" src="/assets/img/projects/unet/predictions.png" alt="Rows of pet photos with their ground-truth masks and the model's predicted masks" />
+  <img loading="lazy" decoding="async" src="/assets/img/projects/unet/predictions.jpg" alt="Rows of pet photos with their ground-truth masks and the model's predicted masks" />
   <figcaption>Input, ground-truth mask, prediction.</figcaption>
 </figure>
 
@@ -249,6 +259,20 @@ $$</div>
 <p>On the test set: IoU 0.8375, Dice 0.9116, pixel accuracy 94.60%, precision 89.61%, recall 92.76%. Recall is higher than precision, so the model’s errors lean toward labelling background pixels as pet rather than missing parts of the animal. The code has a <code>--no-attention</code> switch for comparing against a plain U-Net.</p>
 
   </div>
+  <footer class="project-foot">
+    <p>Want the details?</p>
+    <p class="plinks buttons">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/unet-segmentation">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  <a class="plink" href="https://colab.research.google.com/github/ahmadrezafarvardin/unet-segmentation/blob/main/notebooks/demo.ipynb">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>Open in Colab</span>
+  </a>
+</p>
+
+  </footer>
 </article>
 
 </main>

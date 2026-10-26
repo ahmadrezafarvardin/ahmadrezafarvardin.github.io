@@ -48,7 +48,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/main.css?v=1792216870">
+<link rel="stylesheet" href="/assets/css/main.css?v=1793037365">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
@@ -123,6 +123,7 @@
       "url": "https://ahmadrezafarvardin.github.io/projects/resnet18-cifar10/",
       "codeRepository": "https://github.com/ahmadrezafarvardin/resnet18-cifar10",
       "temporalCoverage": "2024/2025",
+      "image": "https://ahmadrezafarvardin.github.io/assets/img/thumbs/resnet18-cifar10.jpg",
       "author": { "@id": "https://ahmadrezafarvardin.github.io/#person" },
       "isPartOf": { "@id": "https://ahmadrezafarvardin.github.io/#website" }
     },
@@ -163,14 +164,23 @@
     <h1>ResNet-18 on CIFAR-10</h1>
     <p class="lede">A from-scratch ResNet-18 adapted to CIFAR-10's tiny images, reaching 94.51% test accuracy in about 15 minutes of training.</p>
     
+    <p class="plinks buttons">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/resnet18-cifar10">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  <a class="plink" href="https://colab.research.google.com/github/ahmadrezafarvardin/resnet18-cifar10/blob/main/notebooks/demo.ipynb">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>Open in Colab</span>
+  </a>
+</p>
+
+    
     <dl class="stats">
       <div><dt>Test accuracy</dt><dd>94.51%</dd></div><div><dt>Parameters</dt><dd>11.17M</dd></div><div><dt>Training</dt><dd>50 epochs, ~15 min</dd></div>
     </dl>
     
-    <p class="links">
-      <a href="https://github.com/ahmadrezafarvardin/resnet18-cifar10">Code on GitHub ↗</a>
-      <span class="stack">PyTorch · CIFAR-10</span>
-    </p>
+    <p class="stack">PyTorch · CIFAR-10</p>
   </header>
   <div class="prose">
 <p><a href="https://arxiv.org/abs/1512.03385">ResNet-18</a> was designed for 224×224 ImageNet images. Its stem, a 7×7 stride-2 convolution followed by max pooling, shrinks the input by 4× before the first residual block. On a 32×32 CIFAR image that leaves 8×8 to work with, which throws away most of the spatial detail.</p>
@@ -242,6 +252,20 @@ $$</div>
 <p>Cats and dogs are the two worst classes. At 32×32, fur and body shape are about all there is to go on. The errors follow visual similarity between classes rather than looking random.</p>
 
   </div>
+  <footer class="project-foot">
+    <p>Want the details?</p>
+    <p class="plinks buttons">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/resnet18-cifar10">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  <a class="plink" href="https://colab.research.google.com/github/ahmadrezafarvardin/resnet18-cifar10/blob/main/notebooks/demo.ipynb">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>Open in Colab</span>
+  </a>
+</p>
+
+  </footer>
 </article>
 
 </main>

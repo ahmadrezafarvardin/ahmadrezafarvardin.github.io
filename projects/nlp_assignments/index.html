@@ -48,7 +48,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/main.css?v=1792216870">
+<link rel="stylesheet" href="/assets/css/main.css?v=1793037365">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
@@ -163,21 +163,36 @@
     <h1>Nonlinear Programming coursework</h1>
     <p class="lede">Coding assignments for the Nonlinear Programming course at the University of Tehran.</p>
     
-    <p class="links">
-      <a href="https://github.com/ahmadrezafarvardin/NonlinearProgramming-CodingAssignments-UT">Code on GitHub ↗</a>
-      <span class="stack">NumPy · CVXPY · SciPy · statsmodels</span>
-    </p>
+    <p class="plinks buttons">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/NonlinearProgramming-CodingAssignments-UT">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+</p>
+
+    
+    <p class="stack">NumPy · CVXPY · SciPy · statsmodels</p>
   </header>
   <div class="prose">
-<p><strong>Least squares and regularisation.</strong> Choosing polynomial degrees to fit two noisy datasets; ridge regression on <code>diabetes</code>, tracing how λ changes the solution compared with plain least squares, plus a short study of lasso and elastic net; and weighted least squares on <code>california_housing</code> with uniform, multinomial and Dirichlet weights, compared over 100 runs.</p>
+<p><strong>Least squares and regularisation.</strong> Choosing polynomial degrees to fit two noisy datasets; ridge regression on <code>diabetes</code>, tracing how λ changes the solution compared with plain least squares, plus a short study of lasso and elastic net; and weighted least squares on <code>california_housing</code> with uniform, multinomial and Dirichlet weights, compared over 100 runs. (<a href="https://github.com/ahmadrezafarvardin/NonlinearProgramming-CodingAssignments-UT/blob/master/CA1/coding_Farvardin_HW1.ipynb">Notebook</a>)</p>
 
-<p><strong>Descent methods.</strong> Gradient descent with backtracking line search, plus pure and damped Newton, compared on functions such as <span class="kdmath">$f(x) = x_1^4 + 3x_2^2 + x_1x_2$</span> across starting points and line-search parameters <span class="kdmath">$\alpha, \beta$</span>. Then the same two methods on polynomial regression, with the gradient and Hessian of the MSE derived by hand.</p>
+<p><strong>Descent methods.</strong> Gradient descent with backtracking line search, plus pure and damped Newton, compared on functions such as <span class="kdmath">$f(x) = x_1^4 + 3x_2^2 + x_1x_2$</span> across starting points and line-search parameters <span class="kdmath">$\alpha, \beta$</span>. Then the same two methods on polynomial regression, with the gradient and Hessian of the MSE derived by hand. (<a href="https://github.com/ahmadrezafarvardin/NonlinearProgramming-CodingAssignments-UT/blob/master/CA2/coding_Farvardin_HW2.ipynb">Notebook</a>)</p>
 
-<p><strong>GLMs and SVMs.</strong> Gamma regression, minimising the negative log-likelihood three ways (CVXPY, hand-written gradient descent, hand-written Newton–Raphson), checked against statsmodels and evaluated with 10-fold cross-validation. Then hard-margin, soft-margin and kernel SVMs set up as CVXPY problems and checked against scikit-learn on precision, recall, F1 and accuracy.</p>
+<p><strong>GLMs and SVMs.</strong> Gamma regression, minimising the negative log-likelihood three ways (CVXPY, hand-written gradient descent, hand-written Newton–Raphson), checked against statsmodels and evaluated with 10-fold cross-validation. Then hard-margin, soft-margin and kernel SVMs set up as CVXPY problems and checked against scikit-learn on precision, recall, F1 and accuracy. (<a href="https://github.com/ahmadrezafarvardin/NonlinearProgramming-CodingAssignments-UT/blob/master/CA3/HW3.ipynb">Gamma regression</a>, <a href="https://github.com/ahmadrezafarvardin/NonlinearProgramming-CodingAssignments-UT/blob/master/CA3/HW3-Q2.ipynb">SVMs</a>)</p>
 
 <p>Problem statements are in Persian; code is in English.</p>
 
   </div>
+  <footer class="project-foot">
+    <p>Want the details?</p>
+    <p class="plinks buttons">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/NonlinearProgramming-CodingAssignments-UT">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+</p>
+
+  </footer>
 </article>
 
 </main>

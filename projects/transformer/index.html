@@ -48,7 +48,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/main.css?v=1792216870">
+<link rel="stylesheet" href="/assets/css/main.css?v=1793037365">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
@@ -163,14 +163,23 @@
     <h1>Transformer, from scratch</h1>
     <p class="lede">A from-scratch PyTorch implementation of "Attention Is All You Need", trained on Multi30k for German→English translation. Every piece, from multi-head attention to the Noam schedule, is written from primitives.</p>
     
+    <p class="plinks buttons">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/transformer-translation">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  <a class="plink" href="https://colab.research.google.com/github/ahmadrezafarvardin/transformer-translation/blob/main/notebooks/demo.ipynb">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>Open in Colab</span>
+  </a>
+</p>
+
+    
     <dl class="stats">
       <div><dt>Test BLEU</dt><dd>37.37</dd></div><div><dt>Parameters</dt><dd>~9.5M</dd></div><div><dt>Training</dt><dd>~5 min, 1× T4</dd></div>
     </dl>
     
-    <p class="links">
-      <a href="https://github.com/ahmadrezafarvardin/transformer-translation">Code on GitHub ↗</a>
-      <span class="stack">PyTorch · spaCy tokenisation</span>
-    </p>
+    <p class="stack">PyTorch · spaCy tokenisation</p>
   </header>
   <div class="prose">
 <p>An implementation of <a href="https://arxiv.org/abs/1706.03762">Vaswani et al., 2017</a>, trained on <a href="https://github.com/multi30k/dataset">Multi30k</a>. Multi-head attention, positional encoding, masking and the learning-rate schedule are all written by hand, without <code>nn.Transformer</code>.</p>
@@ -252,6 +261,20 @@ tgt_mask = padding_mask &amp; causal
 <p><code>model.py</code> holds the encoder, decoder and attention; <code>data.py</code> handles spaCy tokenisation and vocabularies; <code>train.py</code> runs training with validation and checkpointing; <code>translate.py</code> does greedy decoding; <code>evaluate.py</code> computes BLEU. A Colab notebook runs the whole pipeline in one session.</p>
 
   </div>
+  <footer class="project-foot">
+    <p>Want the details?</p>
+    <p class="plinks buttons">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/transformer-translation">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  <a class="plink" href="https://colab.research.google.com/github/ahmadrezafarvardin/transformer-translation/blob/main/notebooks/demo.ipynb">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>Open in Colab</span>
+  </a>
+</p>
+
+  </footer>
 </article>
 
 </main>

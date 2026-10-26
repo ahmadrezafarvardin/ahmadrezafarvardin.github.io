@@ -48,7 +48,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/main.css?v=1792216870">
+<link rel="stylesheet" href="/assets/css/main.css?v=1793037365">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
@@ -163,14 +163,23 @@
     <h1>YOLOv3, from scratch</h1>
     <p class="lede">YOLOv3 implemented in PyTorch and trained on COCO without any pretrained weights, to see how far the architecture gets on a student's compute budget.</p>
     
+    <p class="plinks buttons">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/YOLOv3-Detection">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  <a class="plink" href="https://colab.research.google.com/github/ahmadrezafarvardin/YOLOv3-Detection/blob/main/notebooks/demo.ipynb">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>Open in Colab</span>
+  </a>
+</p>
+
+    
     <dl class="stats">
       <div><dt>Parameters</dt><dd>61.9M</dd></div><div><dt>Total loss</dt><dd>99.6 → ~32</dd></div><div><dt>Training</dt><dd>~3 h, 1× T4</dd></div>
     </dl>
     
-    <p class="links">
-      <a href="https://github.com/ahmadrezafarvardin/YOLOv3-Detection">Code on GitHub ↗</a>
-      <span class="stack">PyTorch · COCO</span>
-    </p>
+    <p class="stack">PyTorch · COCO</p>
   </header>
   <div class="prose">
 <p>An implementation of <a href="https://arxiv.org/abs/1804.02767">YOLOv3</a> with no pretrained backbone. The original was trained on 118k images for roughly 300 epochs, starting from an ImageNet-pretrained backbone, on 8 GPUs for about a week. This version gets 4,000 images from COCO val2017, 30 epochs, and a Colab T4 for three hours. The point was never to match the paper’s numbers, but to get every part of the detector working and learning.</p>
@@ -275,6 +284,20 @@ $$</div>
 <p>Redmon &amp; Farhadi, <a href="https://arxiv.org/abs/1804.02767">YOLOv3: An Incremental Improvement</a>, 2018 · Redmon &amp; Farhadi, <a href="https://arxiv.org/abs/1612.08242">YOLO9000</a>, CVPR 2017 · Lin et al., <a href="https://arxiv.org/abs/1612.03144">Feature Pyramid Networks</a>, CVPR 2017</p>
 
   </div>
+  <footer class="project-foot">
+    <p>Want the details?</p>
+    <p class="plinks buttons">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/YOLOv3-Detection">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  <a class="plink" href="https://colab.research.google.com/github/ahmadrezafarvardin/YOLOv3-Detection/blob/main/notebooks/demo.ipynb">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>Open in Colab</span>
+  </a>
+</p>
+
+  </footer>
 </article>
 
 </main>

@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>AlphaEvolve-VLM: evolving chart-QA inference · Ahmadreza Farvardin</title>
+<meta name="description" content="An AlphaEvolve-style system, built from scratch, in which an LLM evolves the inference code of Qwen3-VL-2B for chart question answering on CharXiv. Compared against step-by-step manual optimization on an 800-query holdout that no design decision touched.">
+<meta name="author" content="Ahmadreza Farvardin">
+<meta name="keywords" content="Ahmadreza Farvardin, Machine Learning, Deep Learning, Computer Vision, Multimodal LLMs, Embodied AI, AI Agents, LLM Agents, Optical Flow, RAFT, PIV, Object Detection, Segmentation, Transformer, YOLO, ResNet, U-Net, Mathematics, Computer Science, University of Tehran">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ahmadrezafarvardin.github.io/projects/alpha-evolve-vlm/">
+<meta name="google-site-verification" content="KY-NsSUDuXn6c5yRoD4MrP6Mq32srq5jpgHku7RRojU">
+
+<!-- Open Graph / social previews -->
+<meta property="og:site_name" content="Ahmadreza Farvardin">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AlphaEvolve-VLM: evolving chart-QA inference · Ahmadreza Farvardin">
+<meta property="og:description" content="An AlphaEvolve-style system, built from scratch, in which an LLM evolves the inference code of Qwen3-VL-2B for chart question answering on CharXiv. Compared against step-by-step manual optimization on an 800-query holdout that no design decision touched.">
+<meta property="og:url" content="https://ahmadrezafarvardin.github.io/projects/alpha-evolve-vlm/">
+<meta property="og:image" content="https://ahmadrezafarvardin.github.io/assets/img/og.jpg">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Portrait of Ahmadreza Farvardin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ahmadrezafv">
+<meta name="twitter:creator" content="@ahmadrezafv">
+<meta name="twitter:title" content="AlphaEvolve-VLM: evolving chart-QA inference · Ahmadreza Farvardin">
+<meta name="twitter:description" content="An AlphaEvolve-style system, built from scratch, in which an LLM evolves the inference code of Qwen3-VL-2B for chart question answering on CharXiv. Compared against step-by-step manual optimization on an 800-query holdout that no design decision touched.">
+<meta name="twitter:image" content="https://ahmadrezafarvardin.github.io/assets/img/og.jpg">
+
+<!-- Icons -->
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151412" media="(prefers-color-scheme: dark)">
+
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/main.css?v=1793037365">
+
+
+
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TRPMF94PFJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag("js", new Date());
+  gtag("config", "G-TRPMF94PFJ");
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://ahmadrezafarvardin.github.io/#person",
+      "name": "Ahmadreza Farvardin",
+      "givenName": "Ahmadreza",
+      "familyName": "Farvardin",
+      "url": "https://ahmadrezafarvardin.github.io/",
+      "image": "https://ahmadrezafarvardin.github.io/assets/img/og.jpg",
+      "email": "mailto:ahmadreza.farvardin@gmail.com",
+      "jobTitle": "Student researcher, Mathematics & Computer Science",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Tehran",
+        "url": "https://ut.ac.ir/en"
+      },
+      "knowsAbout": ["Computer Vision","Multimodal Large Language Models","Embodied AI","AI Agents","Machine Learning","Deep Learning","Optical Flow","Object Detection","Image Segmentation"],
+      "knowsLanguage": ["fa", "en"],
+      "award": [
+        "1st place, Quera competition, Machine Learning course final project (2024)",
+        "Ranked 2nd of 40, Mathematics major, University of Tehran"
+      ],
+      "sameAs": [
+        "https://github.com/ahmadrezafarvardin",
+        "https://www.linkedin.com/in/ahmadreza-farvardin",
+        "https://x.com/ahmadrezafv"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ahmadrezafarvardin.github.io/#website",
+      "url": "https://ahmadrezafarvardin.github.io/",
+      "name": "Ahmadreza Farvardin",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://ahmadrezafarvardin.github.io/#person" }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://ahmadrezafarvardin.github.io/projects/alpha-evolve-vlm/#project",
+      "name": "AlphaEvolve-VLM: evolving chart-QA inference",
+      "description": "An AlphaEvolve-style system, built from scratch, in which an LLM evolves the inference code of Qwen3-VL-2B for chart question answering on CharXiv. Compared against step-by-step manual optimization on an 800-query holdout that no design decision touched.",
+      "url": "https://ahmadrezafarvardin.github.io/projects/alpha-evolve-vlm/",
+      "codeRepository": "https://github.com/ahmadrezafarvardin/alpha-evolve-vlm",
+      "temporalCoverage": "2026",
+      "image": "https://ahmadrezafarvardin.github.io/assets/img/thumbs/alpha-evolve-vlm.jpg",
+      "subjectOf": {
+        "@type": "ScholarlyArticle",
+        "name": "AlphaEvolve-VLM: evolving chart-QA inference (report)",
+        "url": "https://github.com/ahmadrezafarvardin/alpha-evolve-vlm/blob/main/report/report.pdf",
+        "encodingFormat": "application/pdf",
+        "author": { "@id": "https://ahmadrezafarvardin.github.io/#person" }
+      },
+      "author": { "@id": "https://ahmadrezafarvardin.github.io/#person" },
+      "isPartOf": { "@id": "https://ahmadrezafarvardin.github.io/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmadrezafarvardin.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://ahmadrezafarvardin.github.io/projects/" },
+        { "@type": "ListItem", "position": 3, "name": "AlphaEvolve-VLM: evolving chart-QA inference", "item": "https://ahmadrezafarvardin.github.io/projects/alpha-evolve-vlm/" }
+      ]
+    }
+  ]
+}
+</script>
+
+
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head wrap">
+  <a class="wordmark" href="/">Ahmadreza Farvardin</a>
+  <nav aria-label="Main">
+    
+    <a href="/projects/" aria-current="page">Projects</a>
+    <a href="/cv/" >CV</a>
+    <a href="mailto:ahmadreza.farvardin@gmail.com">Email</a>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18V3z" fill="currentColor"/><circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+  </nav>
+</header>
+
+<main id="main">
+<article class="wrap page project">
+  <a class="back" href="/projects/">← All projects</a>
+  <header class="page-head">
+    <p class="kicker">Research project · 2026 · Princeton NLP Lab technical assessment</p>
+    <h1>AlphaEvolve-VLM: evolving chart-QA inference</h1>
+    <p class="lede">An AlphaEvolve-style system, built from scratch, in which an LLM evolves the inference code of Qwen3-VL-2B for chart question answering on CharXiv. Compared against step-by-step manual optimization on an 800-query holdout that no design decision touched.</p>
+    
+    <p class="plinks buttons">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/alpha-evolve-vlm/blob/main/report/report.pdf">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+    <span>Read the report</span><small>PDF · 6 pages</small>
+  </a>
+  <a class="plink" href="https://github.com/ahmadrezafarvardin/alpha-evolve-vlm/blob/main/presentation/slides.pdf">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/></svg>
+    <span>Slides</span>
+  </a>
+  <a class="plink" href="https://github.com/ahmadrezafarvardin/alpha-evolve-vlm">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  <a class="plink" href="https://github.com/ahmadrezafarvardin/alpha-evolve-vlm/blob/main/RESULTS.md">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>Lab notebook</span>
+  </a>
+</p>
+
+    
+    <dl class="stats">
+      <div><dt>Best holdout accuracy</dt><dd>67.0%</dd></div><div><dt>Manual tuning (Instruct)</dt><dd>25.9 → 56.0%</dd></div><div><dt>Evolution over manual</dt><dd>+6.0 pts, p = 0.0003</dd></div><div><dt>LLM cost of the run</dt><dd>$0.23</dd></div>
+    </dl>
+    
+    <p class="stack">Python · PyTorch · Qwen3-VL-2B · Gemini Flash · MAP-Elites</p>
+  </header>
+  <div class="prose">
+<p><a href="https://github.com/princeton-nlp/CharXiv">CharXiv</a> asks descriptive questions about real charts from arXiv papers: axis labels, tick values, legend entries, subplot layout, colorbar ranges. Scoring is exact match, so the <em>format</em> of an answer matters as much as reading the chart. The target is one function, <code>vlm_inference(image_path, question) -&gt; str</code>, run with Qwen3-VL-2B (Instruct and Thinking) under greedy decoding. I improved its accuracy and speed in two ways and compared them:</p>
+
+<ol>
+  <li><strong>by hand</strong>, one measured change at a time;</li>
+  <li><strong>by evolution</strong>, following <a href="https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/">AlphaEvolve</a>: an LLM proposes code edits, a program database keeps a diverse population, and an evaluation cascade scores candidates on the GPU.</li>
+</ol>
+
+<p>Two findings matter more than the headline accuracy: evolution’s gain on the Instruct model is <strong>specification gaming</strong>, and a routing design that passed validation <strong>failed on holdout</strong>.</p>
+
+<figure>
+  <img loading="lazy" decoding="async" src="/assets/img/projects/alpha/holdout.png" width="1100" height="520" alt="Scatter plot of holdout accuracy against seconds per query on a log scale: baseline at 25.9%, manual Instruct at 56%, evolved Instruct at 62%, manual Thinking at 64.8%, evolved Thinking at 67%" />
+  <figcaption>Holdout (800 queries): accuracy against time per query. Circles are manual programs, triangles evolved.</figcaption>
+</figure>
+
+<h2 id="data-discipline">Data discipline</h2>
+
+<p>The 1,000 labelled CharXiv validation figures are split by figure, so no chart appears in two splits:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Split</th>
+      <th>Queries</th>
+      <th>Used for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dev</td>
+      <td>128</td>
+      <td>manual design only</td>
+    </tr>
+    <tr>
+      <td>evo</td>
+      <td>400</td>
+      <td>the only feedback evolution ever sees</td>
+    </tr>
+    <tr>
+      <td>holdout</td>
+      <td>800</td>
+      <td>the final comparison, nothing else</td>
+    </tr>
+    <tr>
+      <td>reserve</td>
+      <td>1,000</td>
+      <td>single-use checks, each one logged</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Every number on this page is a holdout number. Paired differences are tested with McNemar’s test, and since repeated timing runs vary by about 7%, I never claim a speed difference under 10%.</p>
+
+<h2 id="manual-optimization">Manual optimization</h2>
+
+<p>Each step was committed and measured on its own. Because decoding is greedy, post-processing changes can be measured exactly by replaying recorded raw outputs, which separates extraction gains from prompt gains.</p>
+
+<ul>
+  <li>extracting a short answer from verbose responses;</li>
+  <li>an answer-only prompt with a 64-token limit (5.4× faster);</li>
+  <li>asking the model to check the question’s own “Not Applicable” condition first;</li>
+  <li>for Thinking: a 1,024-token reasoning budget with a forced <code>&lt;/think&gt;</code>.</li>
+</ul>
+
+<p>Together these took the Instruct model from <strong>25.9% to 56.0%</strong> while making it about <strong>6× faster</strong>.</p>
+
+<figure>
+  <img loading="lazy" decoding="async" src="/assets/img/projects/alpha/manual_steps.png" width="1100" height="420" alt="Two line charts: accuracy rising at each manual step on dev, reserve and holdout, and time per query dropping sharply at the answer-only step" />
+  <figcaption>Manual Instruct: accuracy after each step (left) and time per query (right).</figcaption>
+</figure>
+
+<h2 id="the-evolution-system">The evolution system</h2>
+
+<p>About a thousand lines, written from scratch in the <code>alphaevolve/</code> package:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Implementation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Program database</td>
+      <td>islands with ring migration, plus a per-island MAP-Elites grid (time per query × number-reading accuracy)</td>
+    </tr>
+    <tr>
+      <td>Prompt sampler</td>
+      <td>parent code and per-category scores, failure examples from <code>evo</code> only, inspirations shown as diffs (56% fewer tokens)</td>
+    </tr>
+    <tr>
+      <td>LLM mutation</td>
+      <td>SEARCH/REPLACE diffs inside an <code>EVOLVE-BLOCK</code>, from Gemini 3.1 Flash-Lite (85%) and Gemini 3 Flash (15%)</td>
+    </tr>
+    <tr>
+      <td>Evaluation cascade</td>
+      <td>static checks → 8 → 64 → 400 queries, with a noise-aware promotion rule</td>
+    </tr>
+    <tr>
+      <td>Loop</td>
+      <td>atomic checkpoint per generation pushed to a git branch; exact resume from cached LLM calls</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>I added five extensions, each after a measured failure: a near-duplicate edit filter, noise-aware selection, AST checks that forbid sampling, other models or access to gold answers, an “already tried” memory in the prompt, and pause/resume on API failures. The full Instruct run (72 children) cost <strong>$0.23</strong> in LLM calls.</p>
+
+<figure>
+  <img loading="lazy" decoding="async" src="/assets/img/projects/alpha/evolution.png" width="1100" height="420" alt="Step plots of the best evo accuracy per generation, rising from about 54.8% to 62.5% for Instruct over 12 generations and from 71.9% to 74.2% for Thinking" />
+  <figcaption>Best-so-far accuracy on the evo split per generation, for Instruct (left) and Thinking (right).</figcaption>
+</figure>
+
+<h2 id="results">Results</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th>Holdout acc.</th>
+      <th>s / query</th>
+      <th>Compared with</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Naive baseline (Instruct)</td>
+      <td>25.9%</td>
+      <td>2.61</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Manual Instruct</td>
+      <td>56.0%</td>
+      <td><strong>0.41</strong></td>
+      <td>+30.1 over baseline</td>
+    </tr>
+    <tr>
+      <td>Evolved Instruct</td>
+      <td>62.0%</td>
+      <td>0.46</td>
+      <td>+6.0 over manual (p = 0.0003)</td>
+    </tr>
+    <tr>
+      <td>Manual Thinking</td>
+      <td>64.8%</td>
+      <td>28.6</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Evolved Thinking</strong></td>
+      <td><strong>67.0%</strong></td>
+      <td>19.3</td>
+      <td>+2.2 and 33% faster than manual (p = 0.01)</td>
+    </tr>
+    <tr>
+      <td>Routing (manual models)</td>
+      <td>61.6%</td>
+      <td>14.5</td>
+      <td>−3.2 against Thinking alone</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>All timings are on one RTX 3090.</p>
+
+<h2 id="finding-1-specification-gaming">Finding 1: specification gaming</h2>
+
+<p>An answer-level audit shows where evolved Instruct’s +6.0 points come from:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Holdout</th>
+      <th>Manual</th>
+      <th>Evolved</th>
+      <th>Δ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Gold answer is “Not Applicable” (200)</td>
+      <td>83</td>
+      <td><strong>174</strong></td>
+      <td><strong>+91</strong></td>
+    </tr>
+    <tr>
+      <td>All other questions (600)</td>
+      <td><strong>365</strong></td>
+      <td>322</td>
+      <td><strong>−43</strong></td>
+    </tr>
+    <tr>
+      <td>Times the model answered “Not Applicable”</td>
+      <td>115</td>
+      <td>262</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Evolution rewrote the instruction to make the model check whether a colorbar, legend or axis “actually exists” before answering. Most CharXiv charts have no colorbar, so the evolved program answers “Not Applicable” to 115 of 119 colorbar questions, and on the 12 charts that really have one it scores 0/12. A single edit in the winning lineage produced 23 of the 31 points of training gain. The manual work had found the same lever and deliberately declined it.</p>
+
+<p>The search never touched the gold answers or the evaluator; the AST checks rule that out. It optimized the metric it was given, including the metric’s blind spots. <strong>The fitness function in LLM-driven program search needs the same scrutiny as the search itself.</strong></p>
+
+<h2 id="finding-2-the-routing-reversal">Finding 2: the routing reversal</h2>
+
+<p>The Thinking model was much stronger on number-reading and counting questions in the design data, so a router sent those to Thinking and everything else to the 70× faster Instruct model. On a fresh, single-use validation slice, routing beat Instruct alone by +9.0 points (p &lt; 0.001). On holdout it <strong>lost to Thinking alone</strong> (61.6% against 64.8%). The validation was sound but asked the wrong question: it compared the composite system with one of its parts instead of the strongest alternative. Only the untouched holdout caught it.</p>
+
+<h2 id="what-didnt-work">What didn’t work</h2>
+
+<ul>
+  <li><strong>Thinking evolution took the easiest edit.</strong> It halved the reasoning budget, while a stronger intervention measured beforehand, stopping at the fourth “Wait”, cut about 60% of reasoning tokens with no accuracy loss. Four of six children were byte-identical despite the “already tried” memory.</li>
+  <li><strong>The evaluation cascade saved only 10% of GPU time.</strong> Full evaluations were cheap and 75% of children passed; the real saving came from the static filters before the GPU.</li>
+</ul>
+
+<h2 id="credits">Credits</h2>
+
+<p>CharXiv and its evaluation harness are by Wang et al. (Princeton NLP), and the starting script and evaluator scaffold came with the original task. AlphaEvolve is by Novikov et al. (Google DeepMind). The models are Qwen3-VL-2B-Instruct and -Thinking by the Qwen Team. Built with AI coding assistance (Claude Code).</p>
+
+  </div>
+  <footer class="project-foot">
+    <p>Want the details?</p>
+    <p class="plinks buttons">
+  <a class="plink primary" href="https://github.com/ahmadrezafarvardin/alpha-evolve-vlm/blob/main/report/report.pdf">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+    <span>Read the report</span><small>PDF · 6 pages</small>
+  </a>
+  <a class="plink" href="https://github.com/ahmadrezafarvardin/alpha-evolve-vlm/blob/main/presentation/slides.pdf">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/></svg>
+    <span>Slides</span>
+  </a>
+  <a class="plink" href="https://github.com/ahmadrezafarvardin/alpha-evolve-vlm">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+    <span>Code</span>
+  </a>
+  <a class="plink" href="https://github.com/ahmadrezafarvardin/alpha-evolve-vlm/blob/main/RESULTS.md">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h6M9 14h6"/></svg>
+    <span>Lab notebook</span>
+  </a>
+</p>
+
+  </footer>
+</article>
+
+</main>
+
+<footer class="site-foot wrap">
+  <ul class="social foot-social">
+  <li>
+    <a href="mailto:ahmadreza.farvardin@gmail.com">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6.5 9 6.5 9-6.5"/></svg>
+      <span>ahmadreza.farvardin@gmail.com</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/ahmadrezafarvardin" rel="me">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <span>GitHub</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://www.linkedin.com/in/ahmadreza-farvardin" rel="me">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      <span>LinkedIn</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://x.com/ahmadrezafv" rel="me">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+      <span>X</span>
+    </a>
+  </li>
+</ul>
+
+  <p class="foot-meta">Tehran · updated October 2026</p>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>
