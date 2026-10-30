@@ -15,6 +15,10 @@
       "name": {{ site.author.name | jsonify }},
       "givenName": "Ahmadreza",
       "familyName": "Farvardin",
+      {%- if site.author.alternate_name %}
+      "alternateName": {{ site.author.alternate_name | jsonify }},
+      {%- endif %}
+      "description": {{ site.description | normalize_whitespace | strip | jsonify }},
       "url": {{ "/" | absolute_url | jsonify }},
       "image": {{ site.author.image | absolute_url | jsonify }},
       "email": {{ "mailto:" | append: site.author.email | jsonify }},

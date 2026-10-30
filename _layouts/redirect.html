@@ -1,0 +1,20 @@
+{%- comment -%}
+  Redirect for a URL that existed on the old site. GitHub Pages can't send a
+  server-side 301, so this uses an instant meta refresh, which Google treats
+  as a permanent redirect, plus a canonical pointing at the new page.
+  Front matter: redirect_to (a site path, e.g. /projects/).
+{%- endcomment -%}
+{%- assign target = page.redirect_to | absolute_url -%}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Moved · {{ site.title }}</title>
+<link rel="canonical" href="{{ target }}">
+<meta http-equiv="refresh" content="0; url={{ target }}">
+<script>location.replace({{ target | jsonify }});</script>
+</head>
+<body>
+<p>This page has moved to <a href="{{ target }}">{{ target }}</a>.</p>
+</body>
+</html>
